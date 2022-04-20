@@ -28,6 +28,18 @@
       font-size: 56px;
     }
 
+    .main-h2 {
+      line-height: 60px;
+      font-size: 48px;
+    }
+    .main-h3 {
+      line-height: 60px;
+      font-size: 40px;
+    }
+    .green-gradient {
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)),linear-gradient(to right, #049471, #049471);
+    }
+
     .contactus {
       @apply hidden md:flex lg:flex text-white absolute top-0 flex-col items-center;
     }
@@ -184,6 +196,25 @@
 
     #map_canvas_holder.active {
       @apply translate-x-0
+    }
+    .list_items {
+      max-width:454px;
+    }
+    .list_item {
+      display:flex;
+      font-size:24px;
+      line-height:36px;
+    }
+    .list_item::before {
+      content:'';
+      margin-right:8px;
+      margin-top:10px;
+      display:block;
+      width:18px;
+      height:18px;
+      border-radius:18px;
+      background-color: #FCE850;
+      flex-shrink:0;
     }
   
 }
