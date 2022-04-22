@@ -37,6 +37,9 @@ module.exports =
             },
           ],
       },
+      performance: {
+        maxAssetSize: 10000000,
+      },      
     devServer:
       {
         static: path.resolve(__dirname, 'dist'),
