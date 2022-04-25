@@ -24,22 +24,22 @@
     }
 
     .main-h1 {
-      line-height: 60px;
-      font-size: 56px;
+      line-height: 35px;
+      font-size: 29px;
     }
 
     .main-h3-form {
-      line-height: 60px;
-      font-size: 54px;
+      line-height: 35px;
+      font-size: 27px;
     }
 
     .main-h2 {
-      line-height: 60px;
-      font-size: 48px;
+      line-height: 35px;
+      font-size: 29px;
     }
     .main-h3 {
-      line-height: 60px;
-      font-size: 40px;
+      line-height: 35px;
+      font-size: 29px;
     }
     .green-gradient {
       background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)),linear-gradient(to right, #049471, #049471);
@@ -69,10 +69,21 @@
     }
 
     .intro-top-left {
-      @apply flex flex-col lg:flex-row xl:flex-row w-full xl:w-7/12 lg:w-7/12 bg-heroBlue-100 justify-center;
+      @apply flex flex-col lg:flex-row xl:flex-row items-center w-full xl:w-7/12 lg:w-7/12 order-2 xl:order-1 lg:order-1 bg-heroBlue-100 justify-center;
     }
     .intro-top-right {
-      @apply w-full xl:w-5/12 lg:w-5/12 h-[350px] xl:h-auto lg:h-auto flex flex-col justify-end items-center pb-28;  
+      @apply w-full xl:w-5/12 lg:w-5/12 
+            /* h-[350px] xl:h-auto lg:h-auto  */
+            flex flex-col 
+            order-1 xl:order-2 lg:order-2 
+            justify-end items-center 
+            /* xl:pb-28 lg:pb-28  */
+            pt-[60px] xl:pt-0 lg:pt-0;  
+    }
+
+    .intro-top-right .card {
+      @apply w-56 lg:w-auto xl:w-auto ;
+      transform: translate(0, -50%);
     }
 
     .contactus {
@@ -246,13 +257,15 @@
     }
     .list_item {
       display:flex;
-      font-size:24px;
-      line-height:36px;
+      font-size:15px;
+      line-height:22.5px;
     }
+
+
     .list_item::before {
       content:'';
       margin-right:8px;
-      margin-top:10px;
+      margin-top:4px;
       display:block;
       width:18px;
       height:18px;
@@ -271,6 +284,35 @@
   .contactus {
     right: -300px;
   }
+  .list_item {
+    font-size:24px;
+    line-height:36px;
+  }  
+
+  .list_item::before {
+    content:'';
+    margin-top:10px;
+  }  
+
+  .main-h1 {
+    line-height: 60px;
+    font-size: 56px;
+  }
+
+  .main-h3 {
+    line-height: 60px;
+    font-size: 40px;
+  }
+  .main-h2 {
+    line-height: 60px;
+    font-size: 48px;
+  }
+
+  .main-h3-form {
+    line-height: 60px;
+    font-size: 54px;
+  }
+
 }
 
 .copyright {
@@ -420,4 +462,56 @@
   }
   .noUi-marker.noUi-marker-horizontal.noUi-marker-large.filled {
     background-color: #fba834;
+  }
+
+  .b24-form-style-classic, .b24-form-wrapper.b24-form-border-bottom {
+    background-color: transparent;
+  }
+
+  .b24-form-content.b24-form-padding-side {
+    background: transparent;
+    width: 100%;
+  }
+
+  .b24-form input[type="tel"], .b24-form input[type="string"] {
+    background: white!important;
+    border-radius: 1rem!important;
+    height: 78px!important;
+    width: 100%!important;
+    padding-left: 1.25rem!important;
+    padding-right: 1.25rem!important;
+    font-size: 1.25rem!important;
+    line-height: 1.75rem!important;
+    --tw-text-opacity: 1!important;
+    color: rgba(196, 196, 196, var(--tw-text-opacity));    
+  }
+
+  .b24-form-field.b24-form-field-radio.b24-form-control-radio .b24-form-control-label {display: none !important;}
+  .b24-form-field.b24-form-field-radio.b24-form-control-radio .b24-form-control {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    height: auto;
+    min-height: auto;    
+  }
+
+  .b24-form-field.b24-form-field-radio.b24-form-control-radio {
+    background: transparent!important;
+    border: none!important;
+  }
+
+  .b24-form-btn-block button[type='submit'] {
+    background-color: #FBA834;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    --tw-text-opacity: 1;
+    color: rgba(255, 255, 255, var(--tw-text-opacity));
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    border-radius: 20px;
+    height: 78px;    
   }

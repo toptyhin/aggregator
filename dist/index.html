@@ -48,11 +48,11 @@
       </div>
     </div>      
     </header>
-    <main class="w-full">
-      <section class="w-full flex flex-col lg:flex-row xl:flex-row">
+    <main class="w-full flex flex-col">
+      <section class="w-full flex flex-col lg:flex-row xl:flex-row order-1">
         <div class="intro-top-left">
 
-          <div class="flex flex-col mt-64 px-auto w-full lg:w-[662px] xl:w-[662px] mb-40">
+          <div class="flex flex-col mt-5 xl:mt-64 lg:mt-64 px-auto w-11/12 lg:w-[662px] xl:w-[662px] mb-40">
             <h1 class="gothic main-h1 text-white mb-11"> Скидка от 1 до 3 рублей на всех АЗС</h1>
             <p class="text-2xl text-white mb-11">Топливная карта для успешного бизнеса, все бренды без коммисий и сборов</p>
             <input type="text" class="form-field"> 
@@ -61,16 +61,22 @@
           </div>
                  
         </div>
-        <div class="intro-top-right bg-cover bg-no-repeat" style="background-image: url(assets/main-bg.jpg)">
-          <img class="" src="assets/Card.png"/>
+        <!-- <div class="intro-top-right bg-cover bg-no-repeat" style="background-image: url(assets/main-bg.jpg)"> -->
+          <div class="intro-top-right">  
+            <picture class="inset-0 w-full">
+              <source srcset="assets/Bg3_mob.png" media="(max-width: 480px)" type="image/png"/>
+              <source srcset="assets/main-bg.jpg" media="(min-width: 1200px)" type="image/jpg"/>
+              <img class="w-full" src="assets/Bg3_mob.png" alt="" />
+            </picture>
+          <img class="absolute card" src="assets/Card.png"/>
         </div>        
       </section>
 
-      <section class="w-full lg:px-[85px] xl:px-[85px]" style="background-image: url(assets/screen2-obstract-bg.png);">  
+      <section class="w-full px-4 lg:px-[85px] xl:px-[85px] order-2" style="background-image: url(assets/screen2-obstract-bg.png);">  
         <h2 class="gothic main-h1 text-white mb-11 pt-11 text-center" style="color:#FBA834;">Только топливо без комиссий и сборов</h2>
-        <div class="w-full flex flex-col lg:flex-row xl:flex-row pb-36">
+        <div class="w-full flex flex-col lg:flex-row xl:flex-row pb-8 xl:pb-36 lg:pb-36">
           <div class="w-full xl:w-2/5 lg:w-2/5 flex flex-col items-center order-2 xl:order-1 lg:order-1" style="background-color: #50C4ED;">
-            <div class="list_items flex-1 flex flex-col items-center justify-center">
+            <div class="list_items flex-1 flex flex-col items-center justify-center pt-10 xl:pt-0 lg:pt-0 px-5 xl:px-0 lg:px-0">
               <ul class="text-white">
                 <li class="list_item">Скидка от 1 до 3 р/л топлива на любых АЗС</li>
                 <li class="list_item">Отсрочка до 30 дней</li>
@@ -79,7 +85,7 @@
                 <li class="list_item">Бесплатный online ЛК </li>
                 <li class="list_item">Выгрузка 1С и подключение API</li>
               </ul>  
-              <button type="button" class="bg-white px-5 py-5 block text-xl text-zenith-200 rounded-full mt-20">Оформить online</button>
+              <button type="button" class="bg-white px-5 py-5 block text-xl text-zenith-200 rounded-full mt-10 mb-8 xl:mt-20 lg:mt-20 xl:mb-0 lg:mb-0">Оформить online</button>
             </div>
             
           </div>
@@ -88,26 +94,32 @@
         </div>
       </section>
 
-      <section id="map" class="w-full flex bg-fixed bg-cover " style="background-image: url(assets/map.webp);">
-        <div class="mapmask flex flex-col items-center justify-center py-72">
+      <section id="map" class="w-full flex bg-fixed bg-cover order-4 xl:order-3 lg:order-3" style="background-image: url(assets/map.webp);">
+        <div class="mapmask flex flex-col items-center justify-center pt-40 pb-14  xl:pt-72 xl:pb-72 lg:pt-72 lg:pb-72">
           <div class="flex flex-col w-3/4 mx-auto green-gradient" >
             <h3 class="gothic main-h2 text-white py-8">7000 АЗС и более 400 партнеров</h3>
-            <!-- <span class="text-white text-4xl font-extrabold">Сеть АЗС</span> -->
+            
             <span class="text-white text-lg pb-10">Татнефть, Сургутнефтегаз, Ека, Газпром, Нефтьмагистраль, Shell, Роснефть, Ирбис...</span>
+            <button type="button" onclick="showMap()" class="block xl:hidden lg:hidden text-white text-xl leading-7 mt-8 w-11/12 mb-14 py-4 mx-auto px-5 rounded-3xl cursor-pointer" style="background-color: #434343;">Сеть АЗС</button>
           </div>
-          <button type="button" onclick="showMap()" class="text-white text-3xl leading-8 mt-8 py-6 px-28 rounded-3xl cursor-pointer" style="background-color: #434343;">Сеть АЗС</button>
+          <button type="button" onclick="showMap()" class="hidden xl:block lg:block text-white text-3xl leading-8 mt-8 py-6 px-28 rounded-3xl cursor-pointer" style="background-color: #434343;">Сеть АЗС</button>
         </div>
       </section>  
       
-      <section class="relative">
-        <img class="w-full" src="assets/airbaloon-bg.png">
+      <section class="relative order-3 xl:order-4 lg:order-4">
+        <!-- <img class="w-full" src="assets/airbaloon-bg.png"> -->
+        <picture class="w-full">
+          <source srcset="assets/baloon_mob.png" media="(max-width: 480px)" type="image/png"/>
+          <source srcset="assets/airbaloon-bg.png" media="(min-width: 1200px)" type="image/png"/>
+          <img class="w-full" src="assets/airbaloon-bg.png" alt="" />
+        </picture>        
         <div class="absolute inset-0">
-          <div class="w-1/2 flex flex-col h-full items-center">
+          <div class="w-full lg:w-1/2 xl:w-1/2 flex flex-col h-full items-center pt-32 pb-20 xl:pb-0 lg:pb-0 xl:pt-0 lg:pt-0">
             <div class="w-5/6 flex flex-col h-full justify-center">
               <h3 class="gothic main-h3 text-white py-8">Топливный калькулятор</h3>
               <p class="text-2xl leading-9 text-white">Рассчитайте экономию с топливной картой Инфорком</p>
-              <div class="flex items-center mt-16">
-                <button type="button" class="btn text-white text-lg leading-8 py-6 px-20 rounded-full cursor-pointer" style="background-color: #FBA834;">Рассчитать экономию</button>
+                <div class="flex flex-wrap lg:flex-nowrap xl:flex-nowrap items-center mt-16">
+                <button type="button" class="btn text-white text-lg leading-8 py-6 w-full xl:w-auto lg:w-auto px-auto lg:px-20 xl:px-20 rounded-full cursor-pointer mb-5 xl:mb-0 lg:mb-0" style="background-color: #FBA834;">Рассчитать экономию</button>
                 <img class="w-20 ml-6 max-h-20" src="assets/play_button.png" />
                 <span class="self-center ml-6 text-white text-lg">Как управлять картой?</span>
               </div>
@@ -117,30 +129,36 @@
         </div>
       </section>
 
-      <section id="service" class="w-full" style="background-color:#303030">
+      <section id="service" class="w-full order-5" style="background-color:#303030">
         <h3 class="gothic main-h2 pt-10 text-center" style="color:#FBA834;">Экономьте на запчастях и сервисе</h3>
         <p class="text-2xl leading-9 text-white text-center pt-4 pb-10">Рассчитайте экономию с топливной картой Инфорком</p>
       </section>
-      <section class="w-full flex flex-col items-center" style="background:url(assets/bg_service.png),linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%)">
-        <div class="w-1/2 flex flex-col h-full justify-center mt-11 mb-20">
+      <section class="w-full flex flex-col items-center order-6" style="background:url(assets/bg_service.png),linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%)">
+        <div class="w-11/12 xl:w-1/2 lg:w-1/2 flex flex-col h-full justify-center mt-11 mb-20">
           <ul class="self-center">
             <li class="list_item_star">Более 150 000 позиций запчастей с гарантией выгода 8%</li>
             <li class="list_item_star">УСЛУГИ Bosch и Delphi скидка 5% </li>
             <li class="list_item_star">Любые виды ремонта грузовой техники с экономией до 5%</li>
             <li class="list_item_star">Грузовой эвакуатор 24/7</li>
           </ul> 
-          <img class="w-1/2 self-center" src="assets/zp_man.png" /> 
-          <button type="button" class="w-1/2 self-center py-8 rounded-3xl text-white text-3xl mt-0" style="background-color:#387ADF;">Подробнее</button>
+          <img class="w-full xl:w-1/2 lg:w-1/2 self-center" src="assets/zp_man.png" /> 
+          <button type="button" class="w-full xl:w-1/2 lg:w-1/2 self-center py-8 rounded-3xl text-white text-3xl mt-0" style="background-color:#387ADF;">Подробнее</button>
         </div>
       </section>
 
-      <section id="contact_form" class="w-full flex justify-center" style="background-color:#387ADF">
-        <div class="w-1/2 flex flex-col h-full justify-center  mt-11 mb-20">
+      <section id="contact_form" class="w-full flex justify-center order-7" style="background-color:#387ADF">
+        <div class="w-11/12 xl:w-1/2 lg:w-1/2 flex flex-col h-full justify-center  mt-11 mb-20">
           <h3 class="gothic main-h3-form pt-10 text-center text-white">Нужна консультация?</h3>
-          <p class="text-2xl leading-9 text-white text-center pt-4 pb-10">Оставьт свои контактные данные и мы свяжемся с вами.</p>
-          <input type="text" class="form-field"> 
+          <p class="text-base xl:text-2xl lg:text-2xl leading-5 xl:leading-9 lg:leading-9 text-white text-center pt-4 pb-10">Оставьт свои контактные данные и мы свяжемся с вами.</p>
+          <!-- <input type="text" class="form-field"> 
           <input type="text" class="form-field">
-          <button type="button" class="btn orange">Отправить</button>
+          <button type="button" class="btn orange">Отправить</button> -->
+          <script data-b24-form="inline/47/h72bfw" data-skip-moving="true">
+            (function(w,d,u){
+                    var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+                    var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+            })(window,document,'https://bitrix.inforkom.ru/upload/crm/form/loader_47_h72bfw.js');
+          </script>           
         </div>
       </section>
 
