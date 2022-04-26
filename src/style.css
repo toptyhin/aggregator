@@ -50,7 +50,7 @@
       border-radius:20px;
       height:78px;
     }
-    .btn:hover, .btn:active {
+    .btn:hover, .btn:active, .b24-form-btn:hover, .b24-form-btn:active {
       box-shadow: inset 0px 3px 8px rgba(0, 0, 0, 0.2);
     }
 
@@ -60,11 +60,11 @@
     .btn.grey:hover, .btn.grey:active {
       background-color:#686767;
     }
-    .btn.orange {
+    .btn.orange, .b24-form-btn {
       background-color: #FBA834;
     }
 
-    .btn.orange:hover, .btn.orange:active {
+    .btn.orange:hover, .btn.orange:active, .b24-form-btn:hover, .b24-form-btn:active {
       background-color:#E39B36;
     }
 

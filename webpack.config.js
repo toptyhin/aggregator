@@ -3,6 +3,7 @@ module.exports =
   {
     mode: "production",
     entry: "./src/index.js",
+    // entry: ['@babel/plugin-transform-runtime', './src/index.js'],
     output:
       {
         path: path.resolve(__dirname,"dist"),
@@ -22,6 +23,9 @@ module.exports =
                     presets: [
                         "@babel/preset-env",
                     ],
+                    plugins: [
+                      ["@babel/transform-runtime"]
+                    ]
                   },
               },
             },

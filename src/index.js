@@ -1,6 +1,6 @@
 import './style.css';
 // import noUiSlider from 'nouislider';
-import gmapsInitialize from './map';
+import InMap from './map';
 // import * as echarts from 'echarts';
 
 window.toggleMenu = () => document.querySelector('.mobile-menu').classList.toggle('active');
@@ -42,7 +42,13 @@ window.showMap = () => {
     } else {
         holder.classList.add('active');
     }
-    gmapsInitialize();    
+    InMap({
+        apiKey: 'fd02c6b0-6362-49ca-bc38-9f074bf537f6',
+        parent: 'map_canvas',
+        showGaz: false,
+        destroy: true,
+        mapControlsArray: ["searchControl","routeButtonControl","zoomControl"]
+      });   
     setTimeout(()=>{
         holder.classList.add('active');
         document.body.style.overflow='hidden';
@@ -171,4 +177,4 @@ window.showMap = () => {
 // option && economyChart.setOption(option);
 
 
-(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(87874450, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); 
+// (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(87874450, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); 
