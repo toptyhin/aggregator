@@ -18,14 +18,14 @@
           <a class="phone" href="tel:+74993918910">+7 (499) 391-89-10</a>
         </div>
         <!-- <div class="hidden lg:flex w-1/2 items-center px-10 justify-around"> -->
-          <div class="hidden lg:flex w-5/12 items-center px-0 justify-around">
+          <div class="top-menu">
           <button class="menu-btn" role="button" data-target="features" onclick="menuItemHandler(this)">Преимущества</button>
           <button class="menu-btn" role="button" data-target="map" onclick="menuItemHandler(this)">Карта АЗС</button>
           <button class="menu-btn" role="button" data-target="service" onclick="menuItemHandler(this)">Бонус</button>
           <button class="menu-btn" role="button" data-target="contact_form" onclick="menuItemHandler(this)">Оформить Online</button>
           
         </div>
-        <button onclick="toggleMenu()" class="p-2 text-white rounded cursor-pointer md:hidden lg:hidden">
+        <button onclick="toggleMenu()" class="p-2 text-white rounded cursor-pointer sm:hidden md:hidden lg:hidden">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -57,7 +57,7 @@
       <section class="w-full flex flex-col lg:flex-row xl:flex-row order-1">
         <div class="intro-top-left">
 
-          <div class="flex flex-col mt-5 xl:mt-64 lg:mt-64 px-auto w-11/12 lg:w-[662px] xl:w-[662px] mb-40">
+          <div class="flex flex-col mt-5 xl:mt-64 lg:mt-30 px-auto w-11/12 lg:w-[662px] xl:w-[662px] mb-40 lg:mb-0">
             <h1 class="gothic main-h1 text-white mb-11"> Скидка от 1 до 3 рублей на всех АЗС</h1>
             <p class="text-2xl text-white mb-11">Топливная карта для успешного бизнеса, все бренды без коммисий и сборов</p>
             <input type="text" class="form-field"> 
@@ -70,7 +70,8 @@
           <div class="intro-top-right">  
             <picture class="inset-0 w-full">
               <source srcset="assets/Bg3_mob.png" media="(max-width: 480px)" type="image/png"/>
-              <source srcset="assets/main-bg.jpg" media="(min-width: 1200px)" type="image/jpg"/>
+              <source srcset="assets/BG3md.png" media="(max-width: 1024px)" type="image/png"/>
+              <source srcset="assets/main-bg.jpg" media="(min-width: 1024px)" type="image/jpg"/>
               <img class="w-full" src="assets/Bg3_mob.png" alt="" />
             </picture>
           <img class="absolute card" src="assets/Card.png"/>
@@ -114,19 +115,19 @@
       <section class="relative order-3 xl:order-4 lg:order-4">
         <!-- <img class="w-full" src="assets/airbaloon-bg.png"> -->
         <picture class="w-full">
-          <source srcset="assets/baloon_mob.png" media="(max-width: 480px)" type="image/png"/>
-          <source srcset="assets/airbaloon-bg.png" media="(min-width: 1200px)" type="image/png"/>
+          <source srcset="assets/baloon_mob.png" media="(max-width: 900px)" type="image/png"/>
+          <source srcset="assets/airbaloon-bg.png" media="(min-width: 900px)" type="image/png"/>
           <img class="w-full" src="assets/airbaloon-bg.png" alt="" />
         </picture>        
         <div class="absolute inset-0">
-          <div class="w-full lg:w-1/2 xl:w-1/2 flex flex-col h-full items-center pt-32 pb-20 xl:pb-0 lg:pb-0 xl:pt-0 lg:pt-0">
+          <div class="w-full lg:w-2/3 xl:w-2/3 flex flex-col h-full items-center pt-32 pb-20 xl:pb-0 lg:pb-0 xl:pt-0 lg:pt-0">
             <div class="w-5/6 flex flex-col h-full justify-center">
               <h3 class="gothic main-h3 text-white py-8">Топливный калькулятор</h3>
               <p class="text-2xl leading-9 text-white">Рассчитайте экономию с топливной картой Инфорком</p>
                 <div class="flex flex-wrap lg:flex-nowrap xl:flex-nowrap items-center mt-16">
-                <button type="button" class="btn text-white text-lg leading-8 py-6 w-full xl:w-auto lg:w-auto px-auto lg:px-20 xl:px-20 rounded-full cursor-pointer mb-5 xl:mb-0 lg:mb-0" style="background-color: #FBA834;">Рассчитать экономию</button>
-                <img class="w-20 ml-6 max-h-20" src="assets/play_button.png" />
-                <span class="self-center ml-6 text-white text-lg">Как управлять картой?</span>
+                <button type="button" class="btn text-white text-lg leading-8 py-6 w-full xl:w-auto lg:w-auto px-auto lg:px-5 xl:px-15 rounded-full cursor-pointer mb-5 xl:mb-0 lg:mb-0" style="background-color: #FBA834;">Рассчитать экономию</button>
+                <img class="w-20 xl:ml-6 lg:ml-6 max-h-20" src="assets/play_button.png" />
+                <span class="self-center ml-2 xl:ml-6 lg:ml-6 text-white text-lg">Как управлять картой?</span>
               </div>
             </div>
           </div>
@@ -134,9 +135,9 @@
         </div>
       </section>
 
-      <section id="service" class="w-full order-5" style="background-color:#303030">
-        <h3 class="gothic main-h2 pt-10 text-center" style="color:#FBA834;">Экономьте на запчастях и сервисе</h3>
-        <p class="text-2xl leading-9 text-white text-center pt-4 pb-10">Рассчитайте экономию с топливной картой Инфорком</p>
+      <section id="service" class="w-full order-5 pl-4" style="background-color:#303030">
+        <h3 class="gothic main-h2 pt-10 xl:text-center lg:text-center " style="color:#FBA834;">Экономьте на запчастях и сервисе</h3>
+        <p class="text-2xl leading-9 text-white xl:text-center lg:text-center pt-4 pb-10">Рассчитайте экономию с топливной картой Инфорком</p>
       </section>
       <section class="w-full flex flex-col items-center order-6" style="background:url(assets/bg_service.png),linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%)">
         <div class="w-11/12 xl:w-1/2 lg:w-1/2 flex flex-col h-full justify-center mt-11 mb-20">
@@ -170,12 +171,12 @@
 
 
 
-      <section id="calc" class="w-full bg-heroGray-100 hidden">
+      <section id="calc" class="w-full bg-heroGray-100 z-50">
         <div class="w-full md:w-[688px] mx-auto text-center py-3 px-5">
           <h3 class="font-normal text-3xl">Топливный калькулятор</h3>
           <p>Рассчитайте сколько сэкономит топливная карта Инфорком</p>
           <div class="w-full">
-            <input type="text" class="geo"> 
+            <input type="text" id="geo1" class="geo"> 
             <input type="text" class="geo">
             <div class="button-block">
               <button type="button" onclick="btnHandler(this)" class="btn-block left active">ДТ</button>
@@ -193,7 +194,14 @@
               <div class="calculate-slider">
                 <div id="slider2"></div>
               </div>
-          </div>            
+            </div>            
+            <div class="w-full my-20">
+              <button type="button" class="w-full btn orange">Рассчитать</button>
+            </div>
+
+            <div class="w-full my-20">
+              <div id="charts" class="h-96"></div>
+            </div>
           </div>
         </div>
       </section>      
@@ -209,6 +217,7 @@
         </div>
       </section>
     </footer>
+  
     <script src="bundle.js"></script>
   </body>
 </html>
