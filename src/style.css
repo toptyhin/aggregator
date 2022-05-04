@@ -60,6 +60,17 @@
     .btn.grey:hover, .btn.grey:active {
       background-color:#686767;
     }
+
+    .btn.blue {
+      background-color:#387ADF;
+    }
+    .btn.blue:hover {
+      background-color:#3574D4;
+    }    
+    .btn.grey:hover, .btn.grey:active {
+      background-color:#686767;
+    }
+
     .btn.orange, .b24-form-btn {
       background-color: #FBA834;
     }
@@ -226,6 +237,15 @@
       @apply w-full  p-4 mb-4 text-center md:text-left lg:text-left text-lg md:text-base lg:text-base text-gray-700 font-extrabold md:font-normal lg:font-normal;
     }
 
+    .calculate-text {
+      @apply flex py-12 items-center text-3xl;
+      color: #434343;
+    }
+
+    .calc-value {
+      color: #636363;
+    }
+
     .service-bg {
       @apply absolute w-full h-full left-0 top-0 right-0 bottom-0 flex items-center justify-center text-gray-400 opacity-10 overflow-hidden;
       font-size: 500px;
@@ -285,8 +305,33 @@
       content:'\2605';
       margin-right:8px;
       font-size:20px;
+    } 
+    
+    .legend_record {
+      @apply flex w-full items-center;
+      color: #636363;
+      font-size:24px;
+      
+    }
+    .legend_record .amount {
+      @apply ml-auto;
+    }
+    .legend_record .label {
+      @apply w-7 h-7 rounded-full mr-7 bg-slate-600;
+    }
+    
+    .label.grey {
+      @apply bg-[#c4c4c4];
+    }
+    .label.orange {
+      @apply bg-[#FBA834];
     }    
-  
+    .label.green {
+      @apply bg-[#049471];
+    }        
+    .label.blue {
+      @apply bg-[#387ADF];
+    }        
 }
 @media (min-width: 1024px) {
   .contactus {
@@ -523,5 +568,33 @@
     border-radius: 20px;
     height: 78px;    
   }
+  .legend_hl {
+    display: block;
+    border-bottom: 2px dashed #636363;
+    width:100%;
+    margin: 17px 0;
+  }
 
-  .suggestions-nowrap{white-space:nowrap}.suggestions-input{-ms-box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;width:100%}.suggestions-input::-ms-clear{display:none}.suggestions-wrapper{position:relative;margin:0;padding:0;vertical-align:top;-webkit-text-size-adjust:100%}.suggestions-suggestions{background:#fff;border:1px solid #999;-ms-box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;cursor:default;left:0;min-width:100%;position:absolute;z-index:9999;-webkit-text-size-adjust:100%}.suggestions-suggestions strong{font-weight:400;color:#39f}.suggestions-suggestions.suggestions-mobile{border-style:none}.suggestions-suggestions.suggestions-mobile .suggestions-suggestion{border-bottom:1px solid #ddd}.suggestions-suggestion{padding:4px 4px;overflow:hidden}.suggestions-suggestion:hover{background:#f7f7f7}.suggestions-selected{background:#f0f0f0}.suggestions-selected:hover{background:#f0f0f0}.suggestions-hint{padding:4px 4px;white-space:nowrap;overflow:hidden;color:#777;font-size:85%;line-height:20px}.suggestions-subtext{color:#777}.suggestions-subtext_inline{display:inline-block;min-width:6em;vertical-align:bottom;margin:0 .5em 0 0}.suggestions-subtext-delimiter{display:inline-block;width:2px}.suggestions-subtext_label{margin:0 0 0 .25em;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;padding:0 3px;background:#f5f5f5;font-size:85%}.suggestions-value[data-suggestion-status=LIQUIDATED]{position:relative}.suggestions-value[data-suggestion-status=LIQUIDATED]:after{position:absolute;left:0;right:0;top:50%;border-top:1px solid rgba(0,0,0,.4);content:""}.suggestions-promo{font-size:85%;display:none;color:#777;padding:4px;text-align:center}.suggestions-promo a{color:#777;display:block;filter:grayscale(100%);line-height:20px;text-decoration:none}.suggestions-promo a:hover{filter:grayscale(0)}.suggestions-promo svg{height:20px;vertical-align:bottom}@media screen and (min-width:600px){.suggestions-promo{position:absolute;top:0;right:0;text-align:left}}
+  .suggestions-nowrap{white-space:nowrap}
+  .suggestions-input{-ms-box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;width:100%}
+  .suggestions-input::-ms-clear{display:none}
+  .suggestions-wrapper{position:relative;margin:0;padding:0;vertical-align:top;-webkit-text-size-adjust:100%}
+  .suggestions-suggestions{background:#fff;border:1px solid #999;-ms-box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;cursor:default;left:0;min-width:100%;position:absolute;z-index:9999;-webkit-text-size-adjust:100%}
+  .suggestions-suggestions strong{font-weight:400;color:#39f}
+  .suggestions-suggestions.suggestions-mobile{border-style:none}
+  .suggestions-suggestions.suggestions-mobile .suggestions-suggestion{border-bottom:1px solid #ddd}
+  .suggestions-suggestion{padding:4px 4px;overflow:hidden}
+  .suggestions-suggestion:hover{background:#f7f7f7}
+  .suggestions-selected{background:#f0f0f0}
+  .suggestions-selected:hover{background:#f0f0f0}
+  .suggestions-hint{padding:4px 4px;white-space:nowrap;overflow:hidden;color:#777;font-size:85%;line-height:20px}
+  .suggestions-subtext{color:#777}
+  .suggestions-subtext_inline{display:inline-block;min-width:6em;vertical-align:bottom;margin:0 .5em 0 0}
+  .suggestions-subtext-delimiter{display:inline-block;width:2px}.suggestions-subtext_label{margin:0 0 0 .25em;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;padding:0 3px;background:#f5f5f5;font-size:85%}.suggestions-value[data-suggestion-status=LIQUIDATED]{position:relative}.suggestions-value[data-suggestion-status=LIQUIDATED]:after{position:absolute;left:0;right:0;top:50%;border-top:1px solid rgba(0,0,0,.4);content:""}
+  .suggestions-wrapper {text-align: left;}
+  .suggestions-promo {display: none!important;}
+  /* .suggestions-promo{font-size:85%;display:none;color:#777;padding:4px;text-align:center}
+  .suggestions-promo a{color:#777;display:block;filter:grayscale(100%);line-height:20px;text-decoration:none}
+  .suggestions-promo a:hover{filter:grayscale(0)}
+  .suggestions-promo svg{height:20px;vertical-align:bottom}
+  @media screen and (min-width:600px){.suggestions-promo{position:absolute;top:0;right:0;text-align:left}} */

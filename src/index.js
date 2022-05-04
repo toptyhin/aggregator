@@ -7,25 +7,90 @@ import $ from "jquery";
 import suggestions from 'suggestions-jquery';
 
 // window.$ = $;
+let selectedRegions = {
+  reg1: false,
+  reg2: false,
+};
 
 $('#geo1').suggestions(
     {
         token: "09b36502f2fd994fb02fcd541c18b4cbffe47f99",
         type: "ADDRESS",
              onSelect: function(suggestion) {
-             getMaxDiscount();
+              console.log(suggestion);
+              selectedRegions.reg1 = suggestion.data.region;
+              calc();
+        },
+        onSelectNothing: function() {
+          selectedRegions.reg1 = false;
         }
     }
 
 );
 
-const getMaxDiscount = () => {
-    // fetch();
+$('#geo2').suggestions(
+  {
+      token: "09b36502f2fd994fb02fcd541c18b4cbffe47f99",
+      type: "ADDRESS",
+           onSelect: function(suggestion) {
+            console.log(suggestion);
+            selectedRegions.reg2 = suggestion.data.region;
+            calc();
+      },
+      onSelectNothing: function() {
+        selectedRegions.reg2 = false;
+      }
+  }
+
+);
+
+const getActiveFuel = () => document.querySelector('#calc .button-block button.active').dataset.ftype;
+
+
+const calc = async () => {
+  let str_reg = [];
+  let count = 0;
+  Object.keys(selectedRegions).map(i=>{
+    if (selectedRegions[i] ) {
+      str_reg.push('region['+count+']='+encodeURIComponent(selectedRegions[i]));
+      count++;
+    }
+  })
+
+  const region = str_reg.join('&');
+  const fuel = getActiveFuel();
+  
+  const url = 'https://data.inforkom.ru/api/v1/Base/Calculator?'+region+'&fuel='+fuel;
+
+  const calcResponse = await fetch(url);
+  const resp = await calcResponse.json();
+  
+  let amount_l = slider1.noUiSlider.get() * slider2.noUiSlider.get();
+
+
+  console.log(amount_l);
+
+  chartOptions = {
+  series: [
+    {data: [
+    { value: amount_l*resp.minPrice, name: 'Расходы на топливо р/мес' },
+    { value: amount_l*resp.minPrice/6, name: 'НДС' },
+    { value: amount_l*resp.maxVal, name: 'Скидка на топливо' },
+    { value: 500, name: 'Управление картой' },
+    ]}
+  ]
+  };
+  economyChart.setOption(chartOptions);
+  document.getElementById('total_fuel').innerHTML = new Intl.NumberFormat('ru-RU',{ maximumSignificantDigits: 2 }).format(amount_l*resp.minPrice) + ' &#8381;/Мес';
+  document.getElementById('total_discount').innerHTML = new Intl.NumberFormat('ru-RU',{ maximumSignificantDigits: 2 }).format(amount_l*resp.maxVal) + ' &#8381;';
+  document.getElementById('total_vat').innerHTML = new Intl.NumberFormat('ru-RU',{ maximumSignificantDigits: 2 }).format(amount_l*resp.minPrice/6) + ' &#8381;';
+  document.getElementById('total_manage').innerHTML = new Intl.NumberFormat('ru-RU',{ maximumSignificantDigits: 2 }).format(500) + ' &#8381;';
+  document.getElementById('total_total').innerHTML = new Intl.NumberFormat('ru-RU',{ maximumSignificantDigits: 2 }).format(amount_l*resp.minPrice) + ' &#8381;';
 }
 
 window.toggleMenu = () => document.querySelector('.mobile-menu').classList.toggle('active');
 window.btnHandler = (el) => {
-    document.querySelectorAll('button.btn-block').forEach(b=>{
+    el.parentNode.querySelectorAll('button.btn-block').forEach(b=>{
       b.classList.remove('active');
       el == b && el.classList.toggle('active')
     })
@@ -80,17 +145,17 @@ window.showMap = () => {
   const value = document.getElementById("text");
 
   noUiSlider.create(slider1, {
-    start: [500],
+    start: [3500],
     connect: [true, false],
     range: {
-        'min': 50000,
-        'max': 500000
+        'min': 1000,
+        'max': 10000
     },
     pips: {
         mode: 'positions',
         values: [5, 20, 35, 50, 65, 80, 95],
     },
-    step: 5000,
+    step: 500,
     format: {
       from: function(value) {
             return Math.round(+value);
@@ -102,17 +167,17 @@ window.showMap = () => {
 });
 
 noUiSlider.create(slider2, {
-    start: [500],
+    start: [3],
     connect: [true, false],
     range: {
-        'min': 50000,
-        'max': 500000
+        'min': 0,
+        'max': 100
     },
     pips: {
         mode: 'positions',
         values: [5, 20, 35, 50, 65, 80, 95],
     },
-    step: 5000,
+    step: 1,
     format: {
       from: function(value) {
             return Math.round(+value);
@@ -133,68 +198,75 @@ const setPassedLabels = (el, val) => {
     })
 }
 
-const displayValue = (el,val) => {
+const displayValue = (el,val,postfix) => {
     const place = el.parentNode.parentNode.querySelector('.calc-value');
     if (place) {
-        place.innerText = new Intl.NumberFormat('ru-RU').format(val[0]) + ' л'
+        place.innerText = new Intl.NumberFormat('ru-RU').format(val[0]) + postfix;
     }
 }
 
 slider1.noUiSlider.on('update', (val)=>{
     setPassedLabels(slider1,val)
-    displayValue(slider1, val)
+    displayValue(slider1, val,' Л.')
 });
 slider2.noUiSlider.on('update', (val)=>{
     setPassedLabels(slider2, val)
-    displayValue(slider2, val)
+    displayValue(slider2, val, ' Авто')
 });
 
 const chartDom = document.getElementById('charts');
 const economyChart = echarts.init(chartDom);
-let option = {
+let chartOptions = {
   tooltip: {
     trigger: 'item'
   },
   legend: {
-    top: '5%',
-    left: 'center'
+    show: false,
+    bottom: '-10%',
+    left: 'center',
   },
   series: [
     {
       name: 'Экономия на топливе',
       type: 'pie',
-      radius: ['40%', '70%'],
+      radius: ['80%', '95%'],
       avoidLabelOverlap: false,
       itemStyle: {
         borderRadius: [0,10,0,10],
-        borderColor: '#fff',
-        borderWidth: 2
+        borderColor: '#c4c4c4',
+        borderWidth: 1
       },
       label: {
-        show: false,
+        show: true,
         position: 'center'
       },
       emphasis: {
         label: {
           show: true,
-          fontSize: '40',
+          fontSize: '20',
           fontWeight: 'bold'
         }
       },
       labelLine: {
         show: false
       },
+      color: [
+        '#C4C4C4',
+        '#049471',
+        '#FBA834',
+        '#387ADF'
+      ],
       data: [
-        { value: 192550, name: 'Расходы на топливо р/мес' },
-        { value: 12566, name: 'НДС' },
-        { value: 3500, name: 'Скидка на топливо' },
-        { value: 500, name: 'Управление картой' },
+        { value: 0, name: 'Расходы на топливо р/мес' },
+        { value: 0, name: 'НДС' },
+        { value: 0, name: 'Скидка на топливо' },
+        { value: 0, name: 'Управление картой' },
       ]
     }
   ]
 };
 
-option && economyChart.setOption(option);
+economyChart.setOption(chartOptions);
 
 
 // (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(87874450, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); 
