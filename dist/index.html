@@ -85,7 +85,7 @@
         </div>        
       </section>
 
-      <section id="features" class="w-full px-4 lg:px-[85px] xl:px-[85px] order-2" style="background-image: url(assets/screen2-obstract-bg.png);">  
+      <section id="features" class="w-full px-4 lg:px-[85px] xl:px-[85px] order-2" style="background-image: url(assets/screen2-obstract-bg.png);background-repeat:no-repeat;background-size: cover;">  
         <h2 class="gothic main-h1 text-white mb-11 pt-11 text-center" style="color:#FBA834;">Только топливо без комиссий и сборов</h2>
         <div class="w-full flex flex-col lg:flex-row xl:flex-row pb-8 xl:pb-36 lg:pb-36">
           <div class="w-full xl:w-2/5 lg:w-2/5 flex flex-col items-center order-2 xl:order-1 lg:order-1" style="background-color: #50C4ED;">
@@ -146,7 +146,7 @@
         <h3 class="gothic main-h2 pt-10 xl:text-center lg:text-center " style="color:#FBA834;">Экономьте на запчастях и сервисе</h3>
         <p class="text-2xl leading-9 text-white xl:text-center lg:text-center pt-4 pb-10">Рассчитайте экономию с топливной картой Инфорком</p>
       </section>
-      <section class="w-full flex flex-col items-center order-6" style="background:url(assets/bg_service.png),linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%)">
+      <section class="w-full flex flex-col items-center order-6" style="background:url(assets/bg_service.png),linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%); background-repeat:no-repeat;background-size: cover;">
         <div class="w-11/12 xl:w-1/2 lg:w-1/2 flex flex-col h-full justify-center mt-11 mb-20">
           <ul class="self-center">
             <li class="list_item_star">Более 150 000 позиций запчастей с гарантией выгода 8%</li>
@@ -184,7 +184,7 @@
           <p>Рассчитайте сколько сэкономит топливная карта Инфорком</p>
           <div class="w-full">
             <input type="text" id="geo1" class="geo"> 
-            <input type="text" class="geo">
+            <input type="text" id="geo2" class="geo">
             <div class="button-block">
               <button type="button" onclick="btnHandler(this)" data-ftype="dt" class="btn-block left active">ДТ</button>
               <button type="button" onclick="btnHandler(this)" data-ftype="petrol" class="btn-block">БЕНЗИН</button>
@@ -203,7 +203,13 @@
               </div>
             </div>            
             <div class="w-full my-20">
-              <button type="button" class="w-full btn blue flex items-center justify-center">
+              <div class="button-block w-full flex justify-center">
+                <button type="button" onclick="btnHandler(this)" data-ftype="dt" class="btn-block left active">НДС</button>
+                <button type="button" onclick="btnHandler(this)" data-ftype="petrol" class="btn-block right">БЕЗ НДС</button>              
+              </div>
+            </div>            
+            <div class="w-full my-20">
+              <button type="button" class="w-full btn blue flex items-center justify-center" onclick="showResults()">
                 <svg class="mr-2" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M24 4.5H1.5V24H24V4.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   <path d="M24 12H30L34.5 16.5V24H24V12Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -214,29 +220,25 @@
               </button>
             </div>
 
-            <div class="w-full my-20">
-              <div class="button-block w-full flex justify-center">
-                <button type="button" onclick="btnHandler(this)" data-ftype="dt" class="btn-block left active">НДС</button>
-                <button type="button" onclick="btnHandler(this)" data-ftype="petrol" class="btn-block right">БЕЗ НДС</button>              
-              </div>
-            </div>
 
-            <div class="w-full my-20">
-              <div id="charts" class="h-96"></div>
-            </div>
-            <div class="w-full my-20">
-              <div id="legend" class="h-96 flex flex-col xl:px-10">
-                <span class="legend_hl"></span>
-                <span class="legend_record"><span class="label grey"></span>Расходы на топливо<span id="total_fuel" class="amount">0.00 &#8381;</span></span>
-                <span class="legend_hl"></span>
-                <span class="legend_record font-bold mb-4">Экономия на топливе</span>
-                <span class="legend_record mb-4"><span class="label orange"></span>Скидка на топливо<span id="total_discount" class="amount">0.00 &#8381;</span></span>
-                <span class="legend_record mb-4"><span class="label green"></span>НДС<span id="total_vat"class="amount">0.00 &#8381;</span></span>
-                <span class="legend_record mb-4"><span class="label blue"></span>Управление картой<span id="total_manage" class="amount">0.00 &#8381;</span></span>
-                <span class="legend_hl"></span>
-                <span class="legend_record font-bold">ИТОГО<span id="total_total" class="amount">0.00 &#8381;</span></span>
+            <div id="calcResult" class="w-full ">
+              <div class="w-full my-20">
+                <div id="charts" class="h-96"></div>
               </div>
-            </div>            
+              <div class="w-full my-20">
+                <div id="legend" class="h-96 flex flex-col xl:px-10">
+                  <span class="legend_hl"></span>
+                  <span class="legend_record"><span class="label grey"></span>Расходы на топливо<span id="total_fuel" class="amount">0.00 &#8381;</span></span>
+                  <span class="legend_hl"></span>
+                  <span class="legend_record font-bold mb-4">Экономия на топливе</span>
+                  <span class="legend_record mb-4"><span class="label orange"></span>Скидка на топливо<span id="total_discount" class="amount">0.00 &#8381;</span></span>
+                  <span class="legend_record mb-4"><span class="label green"></span>НДС<span id="total_vat"class="amount">0.00 &#8381;</span></span>
+                  <span class="legend_record mb-4"><span class="label blue"></span>Управление картой<span id="total_manage" class="amount">0.00 &#8381;</span></span>
+                  <span class="legend_hl"></span>
+                  <span class="legend_record font-bold">ИТОГО<span id="total_total" class="amount">0.00 &#8381;</span></span>
+                </div>
+              </div>            
+            </div>
           </div>
         </div>
       </section>      

@@ -65,10 +65,16 @@ const calc = async () => {
   const calcResponse = await fetch(url);
   const resp = await calcResponse.json();
   
-  let amount_l = slider1.noUiSlider.get() * slider2.noUiSlider.get();
+  const amount_l = slider1.noUiSlider.get() * slider2.noUiSlider.get();
 
-
-  console.log(amount_l);
+  const amounts = {
+    fuel: amount_l*resp.minPrice - amount_l*resp.maxVal - amount_l*resp.minPrice/6 - 500,
+    discount: amount_l*resp.maxVal,
+    vat: amount_l*resp.minPrice/6,
+    manage: 500,
+    total: amount_l*resp.minPrice
+  };
+  
 
   chartOptions = {
   series: [
@@ -81,11 +87,17 @@ const calc = async () => {
   ]
   };
   economyChart.setOption(chartOptions);
-  document.getElementById('total_fuel').innerHTML = new Intl.NumberFormat('ru-RU',{ maximumSignificantDigits: 2 }).format(amount_l*resp.minPrice) + ' &#8381;/Мес';
-  document.getElementById('total_discount').innerHTML = new Intl.NumberFormat('ru-RU',{ maximumSignificantDigits: 2 }).format(amount_l*resp.maxVal) + ' &#8381;';
-  document.getElementById('total_vat').innerHTML = new Intl.NumberFormat('ru-RU',{ maximumSignificantDigits: 2 }).format(amount_l*resp.minPrice/6) + ' &#8381;';
-  document.getElementById('total_manage').innerHTML = new Intl.NumberFormat('ru-RU',{ maximumSignificantDigits: 2 }).format(500) + ' &#8381;';
-  document.getElementById('total_total').innerHTML = new Intl.NumberFormat('ru-RU',{ maximumSignificantDigits: 2 }).format(amount_l*resp.minPrice) + ' &#8381;';
+  const priceDisplayconfig = {
+    style: "currency",
+    currency: "RUB",
+    currencyDisplay: "symbol",
+  };
+
+  document.getElementById('total_fuel').innerHTML = new Intl.NumberFormat('ru-RU',priceDisplayconfig).format(amounts.fuel);
+  document.getElementById('total_discount').innerHTML = new Intl.NumberFormat('ru-RU',priceDisplayconfig).format(amounts.discount);
+  document.getElementById('total_vat').innerHTML = new Intl.NumberFormat('ru-RU',priceDisplayconfig).format(amounts.vat);
+  document.getElementById('total_manage').innerHTML = new Intl.NumberFormat('ru-RU',priceDisplayconfig).format(amounts.manage);
+  document.getElementById('total_total').innerHTML = new Intl.NumberFormat('ru-RU',priceDisplayconfig).format(amounts.total);
 }
 
 window.toggleMenu = () => document.querySelector('.mobile-menu').classList.toggle('active');
@@ -216,9 +228,37 @@ slider2.noUiSlider.on('update', (val)=>{
 
 const chartDom = document.getElementById('charts');
 const economyChart = echarts.init(chartDom);
+economyChart.on('mouseover',(e)=>{
+  console.log(e)
+  economyChart.setOption({
+    series: [
+      {
+        label: {
+          show: false,
+          position: 'center'
+        },        
+      }
+    ]  
+  });
+});
+economyChart.on('mouseout',(e)=>{
+  console.log('out',e)
+  economyChart.setOption({
+    series: [
+      {
+        label: {
+          show: true,
+          position: 'center',
+          formatter: '{b}: {c}'
+        },        
+      }
+    ]  
+  });
+});
 let chartOptions = {
   tooltip: {
-    trigger: 'item'
+    trigger: 'item',
+    // position: 'inside'
   },
   legend: {
     show: false,
@@ -227,7 +267,7 @@ let chartOptions = {
   },
   series: [
     {
-      name: 'Экономия на топливе',
+      name: 'Цена топлива',
       type: 'pie',
       radius: ['80%', '95%'],
       avoidLabelOverlap: false,
@@ -241,6 +281,7 @@ let chartOptions = {
         position: 'center'
       },
       emphasis: {
+        focus: 'series',
         label: {
           show: true,
           fontSize: '20',
@@ -267,6 +308,12 @@ let chartOptions = {
 };
 
 economyChart.setOption(chartOptions);
+
+window.showResults = () => {
+  document.getElementById('calcResult').classList.remove('hidden');
+  economyChart.resize();
+  // economyChart.dispatchAction({ type: 'highlight', dataIndex: 0 })
+}
 
 
 // (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(87874450, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); 
