@@ -54,6 +54,8 @@
       box-shadow: inset 0px 3px 8px rgba(0, 0, 0, 0.2);
     }
 
+    p.grey {color:#434343;}
+
     .btn.grey {
       background-color: #434343
     }
@@ -93,7 +95,7 @@
 
     .intro-top-right .card {
       @apply w-56 lg:w-auto xl:w-auto ;
-      transform: translate(0, -50%);
+      transform: translate(0, -30%);
     }
 
     .contactus {
@@ -136,6 +138,9 @@
         margin-top: -40px;
         background: linear-gradient(#4eb7cd, #88e7ed 80%);
       }
+      .intro-top-right .card {
+        transform: translate(0, -120%);
+      }      
     }
     @media (min-width: 768px) {
       .first-order {
@@ -166,17 +171,21 @@
     }
 
     input.form-field {
-      @apply w-full h-[78px] rounded-2xl my-3 px-5 text-xl text-heroGray-50 outline outline-2 outline-transparent transition-all;
+      @apply w-full h-[78px] rounded-2xl my-3 px-5 text-xl outline outline-2 outline-transparent transition-all;
       /* box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); */
+      color: grey;
     }
 
     input.form-field:hover, input.form-field:focus, input.form-field:active {
-      outline-color: #636363;
+      /* outline-color: #636363; */
+      outline-color: #8080808c;
     }
 
     input.geo {
-        @apply w-full h-[55px] rounded-2xl my-3 px-5 text-xl text-heroGray-50 outline outline-2;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        @apply w-full h-[55px] rounded-2xl my-3 px-5 text-xl  outline outline-2;
+        box-shadow: 0px 8px 12px 0px rgb(0 0 0 / 10%);
+        outline-color: #8080808c;
+        color: grey;
     }
     /* input.discount-form {
       @apply w-full h-full rounded-2xl px-5 pr-8 text-xl outline-white outline outline-2 bg-transparent text-zenith-blue;
@@ -331,7 +340,8 @@
     }        
     .label.blue {
       @apply bg-[#387ADF];
-    }        
+    } 
+    
 }
 @media (min-width: 1024px) {
   .contactus {
@@ -364,6 +374,10 @@
   .main-h3-form {
     line-height: 60px;
     font-size: 54px;
+  }
+
+  .intro-top {
+    max-height:1039px;
   }
 
 }
@@ -517,6 +531,8 @@
     background-color: #fba834;
   }
 
+  .intro-top-left .b24-form-wrapper {background-color: transparent;}
+
   .b24-form-style-classic, .b24-form-wrapper.b24-form-border-bottom {
     background-color: transparent;
   }
@@ -536,8 +552,14 @@
     font-size: 1.25rem!important;
     line-height: 1.75rem!important;
     --tw-text-opacity: 1!important;
-    color: rgba(196, 196, 196, var(--tw-text-opacity));    
+    color: grey!important;    
   }
+
+  .b24-form-control-string .b24-form-control-label, .b24-form-control-list .b24-form-control-label, .b24-form-control-text .b24-form-control-label {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
 
   .b24-form-field.b24-form-field-radio.b24-form-control-radio .b24-form-control-label {display: none !important;}
   .b24-form-field.b24-form-field-radio.b24-form-control-radio .b24-form-control {

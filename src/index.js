@@ -45,7 +45,7 @@ $('#geo2').suggestions(
 );
 
 const getActiveFuel = () => document.querySelector('#calc .button-block button.active').dataset.ftype;
-
+const hasVat = () =>document.querySelector('#vat_select button.active').dataset.vat === '1'
 
 const calc = async () => {
   let str_reg = [];
@@ -56,7 +56,9 @@ const calc = async () => {
       count++;
     }
   })
-
+  if (!str_reg.length) {
+    return false;
+  }
   const region = str_reg.join('&');
   const fuel = getActiveFuel();
   
@@ -67,25 +69,44 @@ const calc = async () => {
   
   const amount_l = slider1.noUiSlider.get() * slider2.noUiSlider.get();
 
-  const amounts = {
-    fuel: amount_l*resp.minPrice - amount_l*resp.maxVal - amount_l*resp.minPrice/6 - 500,
-    discount: amount_l*resp.maxVal,
-    vat: amount_l*resp.minPrice/6,
-    manage: 500,
-    total: amount_l*resp.minPrice
-  };
+  let amounts = {};
+  if (hasVat()) {
+    amounts = {
+      fuel: amount_l*resp.minPrice - amount_l*resp.maxVal - amount_l*resp.minPrice/6 - 500,
+      discount: amount_l*resp.maxVal,
+      vat: amount_l*resp.minPrice/6,
+      manage: 500,
+      total: amount_l*resp.minPrice
+    };
+    chartOptions = {
+      series: [
+        {data: [
+        { value: amounts.fuel, name: 'Расходы на топливо р/мес' },
+        { value: amounts.vat, name: 'НДС' },
+        { value: amounts.discount, name: 'Скидка на топливо' },
+        { value: amounts.manage, name: 'Управление картой' },
+        ]}
+      ]
+    };    
+  } else {
+    amounts = {
+      fuel: amount_l*resp.minPrice - amount_l*resp.maxVal - 500,
+      discount: amount_l*resp.maxVal,
+      manage: 500,
+      total: amount_l*resp.minPrice
+    };
+    chartOptions = {
+      series: [
+        {data: [
+        { value: amounts.fuel, name: 'Расходы на топливо р/мес' },
+        { value: amounts.discount, name: 'Скидка на топливо' },
+        { value: amounts.manage, name: 'Управление картой' },
+        ]}
+      ]
+    };        
+  }
   
 
-  chartOptions = {
-  series: [
-    {data: [
-    { value: amount_l*resp.minPrice, name: 'Расходы на топливо р/мес' },
-    { value: amount_l*resp.minPrice/6, name: 'НДС' },
-    { value: amount_l*resp.maxVal, name: 'Скидка на топливо' },
-    { value: 500, name: 'Управление картой' },
-    ]}
-  ]
-  };
   economyChart.setOption(chartOptions);
   const priceDisplayconfig = {
     style: "currency",
@@ -95,9 +116,12 @@ const calc = async () => {
 
   document.getElementById('total_fuel').innerHTML = new Intl.NumberFormat('ru-RU',priceDisplayconfig).format(amounts.fuel);
   document.getElementById('total_discount').innerHTML = new Intl.NumberFormat('ru-RU',priceDisplayconfig).format(amounts.discount);
-  document.getElementById('total_vat').innerHTML = new Intl.NumberFormat('ru-RU',priceDisplayconfig).format(amounts.vat);
+  if (hasVat()) {
+    document.getElementById('total_vat').innerHTML = new Intl.NumberFormat('ru-RU',priceDisplayconfig).format(amounts.vat);
+  }
   document.getElementById('total_manage').innerHTML = new Intl.NumberFormat('ru-RU',priceDisplayconfig).format(amounts.manage);
   document.getElementById('total_total').innerHTML = new Intl.NumberFormat('ru-RU',priceDisplayconfig).format(amounts.total);
+  document.getElementById('total_vat').parentNode.style.display = hasVat() ? 'flex' : 'none';
 }
 
 window.toggleMenu = () => document.querySelector('.mobile-menu').classList.toggle('active');
@@ -106,6 +130,9 @@ window.btnHandler = (el) => {
       b.classList.remove('active');
       el == b && el.classList.toggle('active')
     })
+    if ( el.dataset && (el.dataset.vat != 'undefined' || el.dataset.ftype != 'undefined') ) {
+      calc();
+    }
     
   };
 
@@ -313,6 +340,11 @@ window.showResults = () => {
   document.getElementById('calcResult').classList.remove('hidden');
   economyChart.resize();
   // economyChart.dispatchAction({ type: 'highlight', dataIndex: 0 })
+}
+
+window.showCalc = () => {
+  document.getElementById('calc').classList.remove('hidden');
+  economyChart.resize();
 }
 
 

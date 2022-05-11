@@ -61,15 +61,21 @@
     </div>      
     </header>
     <main class="w-full flex flex-col">
-      <section class="w-full flex flex-col lg:flex-row xl:flex-row order-1">
+      <section class="intro-top w-full flex flex-col lg:flex-row xl:flex-row order-1">
         <div class="intro-top-left">
 
-          <div class="flex flex-col mt-5 xl:mt-64 lg:mt-30 px-auto w-11/12 lg:w-[662px] xl:w-[662px] mb-40 lg:mb-0">
+          <div class="flex flex-col mt-5 xl:mt-30 lg:mt-30 px-auto w-11/12 lg:w-[662px] xl:w-[662px] mb-40 lg:mb-0">
             <h1 class="gothic main-h1 text-white mb-11"> Скидка от 1 до 3 рублей на всех АЗС</h1>
             <p class="text-2xl text-white mb-11">Топливная карта для успешного бизнеса, все бренды без коммисий и сборов</p>
-            <input type="text" class="form-field"> 
+            <script data-b24-form="inline/50/ha5cng" data-skip-moving="true">
+              (function(w,d,u){
+                      var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+                      var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+              })(window,document,'https://bitrix.inforkom.ru/upload/crm/form/loader_50_ha5cng.js');
+            </script>             
+            <!-- <input type="text" class="form-field"> 
             <input type="text" class="form-field">
-            <button type="button" class="btn orange">Заказать консультацию</button>
+            <button type="button" class="btn orange">Заказать консультацию</button> -->
           </div>
                  
         </div>
@@ -79,13 +85,13 @@
               <source srcset="assets/Bg3_mob.png" media="(max-width: 480px)" type="image/png"/>
               <source srcset="assets/BG3md.png" media="(max-width: 1024px)" type="image/png"/>
               <source srcset="assets/main-bg.jpg" media="(min-width: 1024px)" type="image/jpg"/>
-              <img class="w-full" src="assets/Bg3_mob.png" alt="" />
+              <img class="w-full" src="assets/Bg3_mob.png" alt="" loading="lazy"/>
             </picture>
           <img class="absolute card" src="assets/Card.png"/>
         </div>        
       </section>
 
-      <section id="features" class="w-full px-4 lg:px-[85px] xl:px-[85px] order-2" style="background-image: url(assets/screen2-obstract-bg.png);background-repeat:no-repeat;background-size: cover;">  
+      <section id="features" class="w-full px-4 lg:px-[85px] xl:px-[85px] order-2" style="background-image: url(assets/preimushestva_BG.svg);background-repeat:no-repeat;background-size: cover;">  
         <h2 class="gothic main-h1 text-white mb-11 pt-11 text-center" style="color:#FBA834;">Только топливо без комиссий и сборов</h2>
         <div class="w-full flex flex-col lg:flex-row xl:flex-row pb-8 xl:pb-36 lg:pb-36">
           <div class="w-full xl:w-2/5 lg:w-2/5 flex flex-col items-center order-2 xl:order-1 lg:order-1" style="background-color: #50C4ED;">
@@ -124,7 +130,7 @@
         <picture class="w-full">
           <source srcset="assets/baloon_mob.png" media="(max-width: 900px)" type="image/png"/>
           <source srcset="assets/airbaloon-bg.png" media="(min-width: 900px)" type="image/png"/>
-          <img class="w-full" src="assets/airbaloon-bg.png" alt="" />
+          <img class="w-full" src="assets/airbaloon-bg.png" alt="" loading="lazy"/>
         </picture>        
         <div class="absolute inset-0">
           <div class="w-full lg:w-2/3 xl:w-2/3 flex flex-col h-full items-center pt-32 pb-20 xl:pb-0 lg:pb-0 xl:pt-0 lg:pt-0">
@@ -132,7 +138,7 @@
               <h3 class="gothic main-h3 text-white py-8">Топливный калькулятор</h3>
               <p class="text-2xl leading-9 text-white">Рассчитайте экономию с топливной картой Инфорком</p>
                 <div class="flex flex-wrap lg:flex-nowrap xl:flex-nowrap items-center mt-16">
-                <button type="button" class="btn text-white text-lg leading-8 py-6 w-full xl:w-auto lg:w-auto px-auto lg:px-5 xl:px-15 rounded-full cursor-pointer mb-5 xl:mb-0 lg:mb-0" style="background-color: #FBA834;">Рассчитать экономию</button>
+                <button type="button" class="btn text-white text-lg leading-8 py-6 w-full xl:w-auto lg:w-auto px-auto lg:px-5 xl:px-15 rounded-full cursor-pointer mb-5 xl:mb-0 lg:mb-0" style="background-color: #FBA834;" onclick="showCalc()">Рассчитать экономию</button>
                 <img class="w-20 xl:ml-6 lg:ml-6 max-h-20" src="assets/play_button.png" />
                 <span class="self-center ml-2 xl:ml-6 lg:ml-6 text-white text-lg">Как управлять картой?</span>
               </div>
@@ -141,48 +147,11 @@
 
         </div>
       </section>
-
-      <section id="service" class="w-full order-5 pl-4" style="background-color:#303030">
-        <h3 class="gothic main-h2 pt-10 xl:text-center lg:text-center " style="color:#FBA834;">Экономьте на запчастях и сервисе</h3>
-        <p class="text-2xl leading-9 text-white xl:text-center lg:text-center pt-4 pb-10">Рассчитайте экономию с топливной картой Инфорком</p>
-      </section>
-      <section class="w-full flex flex-col items-center order-6" style="background:url(assets/bg_service.png),linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%); background-repeat:no-repeat;background-size: cover;">
-        <div class="w-11/12 xl:w-1/2 lg:w-1/2 flex flex-col h-full justify-center mt-11 mb-20">
-          <ul class="self-center">
-            <li class="list_item_star">Более 150 000 позиций запчастей с гарантией выгода 8%</li>
-            <li class="list_item_star">УСЛУГИ Bosch и Delphi скидка 5% </li>
-            <li class="list_item_star">Любые виды ремонта грузовой техники с экономией до 5%</li>
-            <li class="list_item_star">Грузовой эвакуатор 24/7</li>
-          </ul> 
-          <img class="w-full xl:w-1/2 lg:w-1/2 self-center" src="assets/zp_man.png" /> 
-          <button type="button" class="w-full xl:w-1/2 lg:w-1/2 self-center py-8 rounded-3xl text-white text-3xl mt-0" style="background-color:#387ADF;">Подробнее</button>
-        </div>
-      </section>
-
-      <section id="contact_form" class="w-full flex justify-center order-7" style="background-color:#387ADF">
-        <div class="w-11/12 xl:w-1/2 lg:w-1/2 flex flex-col h-full justify-center  mt-11 mb-20">
-          <h3 class="gothic main-h3-form pt-10 text-center text-white">Нужна консультация?</h3>
-          <p class="text-base xl:text-2xl lg:text-2xl leading-5 xl:leading-9 lg:leading-9 text-white text-center pt-4 pb-10">Оставьт свои контактные данные и мы свяжемся с вами.</p>
-          <!-- <input type="text" class="form-field"> 
-          <input type="text" class="form-field">
-          <button type="button" class="btn orange">Отправить</button> -->
-          <script data-b24-form="inline/47/h72bfw" data-skip-moving="true">
-            (function(w,d,u){
-                    var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
-                    var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
-            })(window,document,'https://bitrix.inforkom.ru/upload/crm/form/loader_47_h72bfw.js');
-          </script>           
-        </div>
-      </section>
-
-
-
-
-      <section id="calc" class="w-full bg-heroGray-100 z-50">
-        <div class="w-full md:w-[688px] mx-auto text-center py-3 px-5">
-          <h3 class="font-normal text-3xl">Топливный калькулятор</h3>
-          <p>Рассчитайте сколько сэкономит топливная карта Инфорком</p>
-          <div class="w-full">
+      <section id="calc" class="w-full bg-heroGray-100 z-50 order-5 hidden">
+        <div class="w-full md:w-[728px] mx-auto text-center py-3 px-5">
+          <h3 class="gothic text-4xl pt-10">Топливный калькулятор</h3>
+          <p class="pt-3 text-xl grey">Рассчитайте сколько сэкономит топливная карта Инфорком</p>
+          <div class="w-full mt-10">
             <input type="text" id="geo1" class="geo"> 
             <input type="text" id="geo2" class="geo">
             <div class="button-block">
@@ -202,10 +171,10 @@
                 <div id="slider2"></div>
               </div>
             </div>            
-            <div class="w-full my-20">
+            <div id="vat_select" class="w-full my-20">
               <div class="button-block w-full flex justify-center">
-                <button type="button" onclick="btnHandler(this)" data-ftype="dt" class="btn-block left active">НДС</button>
-                <button type="button" onclick="btnHandler(this)" data-ftype="petrol" class="btn-block right">БЕЗ НДС</button>              
+                <button type="button" onclick="btnHandler(this)" data-vat="1" class="btn-block left active">НДС</button>
+                <button type="button" onclick="btnHandler(this)" data-vat="0" class="btn-block right">БЕЗ НДС</button>              
               </div>
             </div>            
             <div class="w-full my-20">
@@ -241,7 +210,41 @@
             </div>
           </div>
         </div>
-      </section>      
+      </section>        
+
+      <section id="service" class="w-full order-5 pl-4" style="background-color:#303030">
+        <h3 class="gothic main-h2 pt-10 xl:text-center lg:text-center " style="color:#FBA834;">Экономьте на запчастях и сервисе</h3>
+        <p class="text-2xl leading-9 text-white xl:text-center lg:text-center pt-4 pb-10">Рассчитайте экономию с топливной картой Инфорком</p>
+      </section>
+      <section class="w-full flex flex-col items-center order-6" style="background:url(assets/BG.svg),linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%); background-repeat:no-repeat;background-size: cover;">
+        <div class="w-11/12 xl:w-1/2 lg:w-1/2 flex flex-col h-full justify-center mt-11 mb-20">
+          <ul class="self-center">
+            <li class="list_item_star">Более 150 000 позиций запчастей с гарантией выгода 8%</li>
+            <li class="list_item_star">УСЛУГИ Bosch и Delphi скидка 5% </li>
+            <li class="list_item_star">Любые виды ремонта грузовой техники с экономией до 5%</li>
+            <li class="list_item_star">Грузовой эвакуатор 24/7</li>
+          </ul> 
+          <img class="w-full xl:w-1/2 lg:w-1/2 self-center" src="assets/zp_man.png" loading="lazy"/> 
+          <button type="button" class="w-full xl:w-1/2 lg:w-1/2 self-center py-8 rounded-3xl text-white text-3xl mt-0" style="background-color:#387ADF;">Подробнее</button>
+        </div>
+      </section>
+
+      <section id="contact_form" class="w-full flex justify-center order-7" style="background-color:#387ADF">
+        <div class="w-11/12 xl:w-1/2 lg:w-1/2 flex flex-col h-full justify-center  mt-11 mb-20">
+          <h3 class="gothic main-h3-form pt-10 text-center text-white">Нужна консультация?</h3>
+          <p class="text-base xl:text-2xl lg:text-2xl leading-5 xl:leading-9 lg:leading-9 text-white text-center pt-4 pb-10">Оставьт свои контактные данные и мы свяжемся с вами.</p>
+          <!-- <input type="text" class="form-field"> 
+          <input type="text" class="form-field">
+          <button type="button" class="btn orange">Отправить</button> -->
+          <script data-b24-form="inline/47/h72bfw" data-skip-moving="true">
+            (function(w,d,u){
+                    var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+                    var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+            })(window,document,'https://bitrix.inforkom.ru/upload/crm/form/loader_47_h72bfw.js');
+          </script>           
+        </div>
+      </section>
+  
     </main>
     <footer>
       <section class="w-full flex" style="background-color: #303030;">
