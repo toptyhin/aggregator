@@ -343,8 +343,17 @@ window.showResults = () => {
 }
 
 window.showCalc = () => {
-  document.getElementById('calc').classList.remove('hidden');
+  const calc = document.getElementById('calc');
+  calc.style.opacity = '0';
+  calc.classList.remove('hidden');
   economyChart.resize();
+  setTimeout(()=>{
+    calc.style.opacity = '1';
+    window.scrollTo({
+      top:calc.offsetTop - 60,
+      behavior: 'smooth'
+  })
+  },500)
 }
 
 
