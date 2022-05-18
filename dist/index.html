@@ -12,6 +12,7 @@
       <meta name="keywords" content="топливные карты для юр лиц, топливные карты ип, топливные карты для юридических лиц">
       <!-- <base href="https://promo.inforkom.ru">     -->
       <title>Топливные карты для ИП и юридических лиц.</title>
+      <script src="bundle.js"></script>
   </head>
   <body>
     <header class="w-full absolute">
@@ -153,8 +154,8 @@
           <h3 class="gothic text-[23px] md:text-[40px] pt-5 md:pt-10 text-left">Топливный калькулятор</h3>
           <p class="pt-3 text-[15px] md:text-xl grey text-left">Рассчитайте сколько сэкономит топливная карта Инфорком</p>
           <div class="w-full mt-4">
-            <input type="text" id="geo1" placeholder="Регион перевозок" class="geo"> 
-            <input type="text" id="geo2" placeholder="Регион перевозок 2" class="geo">
+            <input type="text" id="geo1" placeholder="Введите регион перевозок" class="geo"> 
+            <input type="text" id="geo2" placeholder="Дополнительный регион" class="geo">
             <div class="button-block">
               <button type="button" onclick="btnHandler(this)" data-ftype="dt" class="btn-block left active">ДТ</button>
               <button type="button" onclick="btnHandler(this)" data-ftype="petrol" class="btn-block">БЕНЗИН</button>
@@ -186,7 +187,7 @@
                   <path d="M8.25 31.5C10.3211 31.5 12 29.8211 12 27.75C12 25.6789 10.3211 24 8.25 24C6.17893 24 4.5 25.6789 4.5 27.75C4.5 29.8211 6.17893 31.5 8.25 31.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   <path d="M27.75 31.5C29.8211 31.5 31.5 29.8211 31.5 27.75C31.5 25.6789 29.8211 24 27.75 24C25.6789 24 24 25.6789 24 27.75C24 29.8211 25.6789 31.5 27.75 31.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>                
-                Рассчитать
+                Рассчитать экономию
               </button>
             </div>
 
@@ -202,8 +203,8 @@
                   <span class="legend_hl"></span>
                   <span class="legend_record font-bold mb-4">Экономия на топливе</span>
                   <span class="legend_record mb-4"><span class="label orange"></span>Скидка на топливо<span id="total_discount" class="amount">0.00 &#8381;</span></span>
-                  <span class="legend_record mb-4"><span class="label green"></span>НДС<span id="total_vat"class="amount">0.00 &#8381;</span></span>
-                  <span class="legend_record mb-4"><span class="label blue"></span>Управление картой<span id="total_manage" class="amount">0.00 &#8381;</span></span>
+                  <span class="legend_record mb-4"><span class="label green"></span>НДС 20%<span id="total_vat"class="amount">0.00 &#8381;</span></span>
+                  <span class="legend_record mb-4"><span class="label blue"></span>Выбор лучших цен 1,7%<span id="total_manage" class="amount">0.00 &#8381;</span></span>
                   <span class="legend_hl"></span>
                   <span class="legend_record font-bold">ИТОГО<span id="total_total" class="amount">0.00 &#8381;</span></span>
                 </div>
@@ -262,6 +263,5 @@
       </section>
     </footer>
   
-    <script src="bundle.js"></script>
   </body>
 </html>

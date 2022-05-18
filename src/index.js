@@ -12,6 +12,12 @@ let selectedRegions = {
   reg2: false,
 };
 
+const priceDisplayconfig = {
+  style: "currency",
+  currency: "RUB",
+  currencyDisplay: "symbol",
+};
+
 $('#geo1').suggestions(
     {
         token: "09b36502f2fd994fb02fcd541c18b4cbffe47f99",
@@ -72,10 +78,10 @@ const calc = async () => {
   let amounts = {};
   if (hasVat()) {
     amounts = {
-      fuel: amount_l*resp.minPrice - amount_l*resp.maxVal - amount_l*resp.minPrice/6 - 500,
+      fuel: amount_l*resp.minPrice - amount_l*resp.maxVal - amount_l*resp.minPrice/6 - amount_l*resp.minPrice*0.017,
       discount: amount_l*resp.maxVal,
       vat: amount_l*resp.minPrice/6,
-      manage: 500,
+      manage: amount_l*resp.minPrice*0.017,
       total: amount_l*resp.minPrice
     };
     chartOptions = {
@@ -84,15 +90,15 @@ const calc = async () => {
         { value: amounts.fuel, name: 'Расходы на топливо р/мес' },
         { value: amounts.vat, name: 'НДС' },
         { value: amounts.discount, name: 'Скидка на топливо' },
-        { value: amounts.manage, name: 'Управление картой' },
+        { value: amounts.manage, name: 'Выбор лучших цен' },
         ]}
       ]
     };    
   } else {
     amounts = {
-      fuel: amount_l*resp.minPrice - amount_l*resp.maxVal - 500,
+      fuel: amount_l*resp.minPrice - amount_l*resp.maxVal - amount_l*resp.minPrice*0.017,
       discount: amount_l*resp.maxVal,
-      manage: 500,
+      manage: amount_l*resp.minPrice*0.017,
       total: amount_l*resp.minPrice
     };
     chartOptions = {
@@ -100,7 +106,7 @@ const calc = async () => {
         {data: [
         { value: amounts.fuel, name: 'Расходы на топливо р/мес' },
         { value: amounts.discount, name: 'Скидка на топливо' },
-        { value: amounts.manage, name: 'Управление картой' },
+        { value: amounts.manage, name: 'Выбор лучших цен' },
         ]}
       ]
     };        
@@ -108,11 +114,6 @@ const calc = async () => {
   
 
   economyChart.setOption(chartOptions);
-  const priceDisplayconfig = {
-    style: "currency",
-    currency: "RUB",
-    currencyDisplay: "symbol",
-  };
 
   document.getElementById('total_fuel').innerHTML = new Intl.NumberFormat('ru-RU',priceDisplayconfig).format(amounts.fuel);
   document.getElementById('total_discount').innerHTML = new Intl.NumberFormat('ru-RU',priceDisplayconfig).format(amounts.discount);
@@ -256,27 +257,31 @@ slider2.noUiSlider.on('update', (val)=>{
 const chartDom = document.getElementById('charts');
 const economyChart = echarts.init(chartDom);
 economyChart.on('mouseover',(e)=>{
-  console.log(e)
+
   economyChart.setOption({
     series: [
       {
         label: {
           show: false,
-          position: 'center'
+          // position: 'center',
+          // formatter: (d) => d.name + ' ' + new Intl.NumberFormat('ru-RU',priceDisplayconfig).format(d.value),
+          // fontSize: 14,
         },        
       }
     ]  
   });
 });
 economyChart.on('mouseout',(e)=>{
-  console.log('out',e)
+
   economyChart.setOption({
     series: [
       {
         label: {
           show: true,
           position: 'center',
-          formatter: '{b}: {c}'
+          // formatter: '{b}: {c}',
+          formatter: (d) => d.name + ' ' + new Intl.NumberFormat('ru-RU',priceDisplayconfig).format(d.value),
+          fontSize: 14,
         },        
       }
     ]  
@@ -305,7 +310,8 @@ let chartOptions = {
       },
       label: {
         show: true,
-        position: 'center'
+        position: 'center',
+        fontSize: 14,
       },
       emphasis: {
         focus: 'series',
