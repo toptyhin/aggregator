@@ -23,7 +23,6 @@ $('#geo1').suggestions(
         token: "09b36502f2fd994fb02fcd541c18b4cbffe47f99",
         type: "ADDRESS",
              onSelect: function(suggestion) {
-              console.log(suggestion);
               selectedRegions.reg1 = suggestion.data.region;
               calc();
         },
@@ -39,7 +38,6 @@ $('#geo2').suggestions(
       token: "09b36502f2fd994fb02fcd541c18b4cbffe47f99",
       type: "ADDRESS",
            onSelect: function(suggestion) {
-            console.log(suggestion);
             selectedRegions.reg2 = suggestion.data.region;
             calc();
       },
@@ -50,10 +48,32 @@ $('#geo2').suggestions(
 
 );
 
+document.getElementById('geo1').addEventListener('change',e => {
+  document.getElementById('geo1').classList.remove('alert');
+  if (e.target.value == '') {
+    selectedRegions.reg1 = false
+    document.getElementById('calcResult').classList.add('hidden');
+  }
+})
+document.getElementById('geo2').addEventListener('change',e => {
+  if (e.target.value == '') {
+    selectedRegions.reg2 = false
+  }
+})
+
 const getActiveFuel = () => document.querySelector('#calc .button-block button.active').dataset.ftype;
 const hasVat = () =>document.querySelector('#vat_select button.active').dataset.vat === '1'
 
+const setAlert = (el) => {
+    el.classList.add('alert');
+    window.scrollTo({
+      top:el.offsetTop - 60,
+      behavior: 'smooth'
+    })
+}
+
 const calc = async () => {
+  console.log('called calc');
   let str_reg = [];
   let count = 0;
   Object.keys(selectedRegions).map(i=>{
@@ -62,7 +82,9 @@ const calc = async () => {
       count++;
     }
   })
+  console.log(str_reg)
   if (!str_reg.length) {
+    setAlert(document.getElementById('geo1'));
     return false;
   }
   const region = str_reg.join('&');
@@ -123,6 +145,7 @@ const calc = async () => {
   document.getElementById('total_manage').innerHTML = new Intl.NumberFormat('ru-RU',priceDisplayconfig).format(amounts.manage);
   document.getElementById('total_total').innerHTML = new Intl.NumberFormat('ru-RU',priceDisplayconfig).format(amounts.total);
   document.getElementById('total_vat').parentNode.style.display = hasVat() ? 'flex' : 'none';
+  return true;
 }
 
 window.toggleMenu = () => document.querySelector('.mobile-menu').classList.toggle('active');
@@ -343,7 +366,10 @@ let chartOptions = {
 economyChart.setOption(chartOptions);
 
 window.showResults = () => {
-  document.getElementById('calcResult').classList.remove('hidden');
+  if (selectedRegions.reg1) {
+    document.getElementById('calcResult').classList.remove('hidden');
+  }
+  calc();
   economyChart.resize();
   // economyChart.dispatchAction({ type: 'highlight', dataIndex: 0 })
 }

@@ -1,9 +1,10 @@
 const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports =
   {
     mode: "production",
     entry: "./src/index.js",
-    // entry: ['@babel/plugin-transform-runtime', './src/index.js'],
+    plugins: [new MiniCssExtractPlugin()],
     output:
       {
         path: path.resolve(__dirname,"dist"),
@@ -32,13 +33,19 @@ module.exports =
             {
               test: /\.css$/i,
               include:
-                path.resolve(__dirname,"src"),
-              use: [
-                "style-loader",
-                "css-loader",
-                "postcss-loader",
-              ],
-            },
+                path.resolve(__dirname,"src"),              
+              use: [MiniCssExtractPlugin.loader, "css-loader","postcss-loader"],
+            },            
+            // {
+            //   test: /\.css$/i,
+            //   include:
+            //     path.resolve(__dirname,"src"),
+            //   use: [
+            //     "style-loader",
+            //     "css-loader",
+            //     "postcss-loader",
+            //   ],
+            // },
           ],
       },
       performance: {
