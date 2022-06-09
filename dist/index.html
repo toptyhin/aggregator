@@ -66,8 +66,11 @@
         <div class="intro-top-left">
 
           <div class="flex flex-col mt-5 xl:mt-30 lg:mt-30 px-auto w-11/12 lg:w-[662px] xl:w-[662px] mb-40 lg:mb-0">
-            <h1 class="gothic main-h1 text-white mb-11 text-center"> Скидка от 1 до 3 р. <br> на всех АЗС</h1>
-            <p class="text-2xl text-white mb-11 text-center">При оформлении договора до конца июня -<br> карты бесплатно</p>
+            <span id="hero" class="pl-[31px]">
+              <h1 class="gothic main-h1 text-white mb-11"> Скидка от 1 до 4 р. <br> на всех АЗС</h1>
+              <p class="text-2xl text-white mb-0">Топливная карта для успешного бизнеса, все бренды без коммисий и сборов <span style="color:#FBA834">+ в июле новым клиентам выпуск карт бесплатно</span></p>
+            </span>
+            <!-- <p class="text-2xl text-white mb-11 text-center">При оформлении договора до конца июня -<br> карты бесплатно</p> -->
             <script data-b24-form="inline/50/ha5cng" data-skip-moving="true">
               (function(w,d,u){
                       var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
@@ -88,24 +91,24 @@
               <source srcset="assets/main-bg.jpg" media="(min-width: 1024px)" type="image/jpg"/>
               <img class="w-full" src="assets/Bg3_mob.png" alt="" loading="lazy"/>
             </picture>
-            <p class="right-title">Топливная карта для успешного бизнеса, все бренды без коммисий и сборов</p>
+            <!-- <p class="right-title">Топливная карта для успешного бизнеса, все бренды без коммисий и сборов</p> -->
             <img class="absolute card" src="assets/Card.png"/>
         </div>        
       </section>
 
       <section id="features" class="w-full px-4 lg:px-[85px] xl:px-[85px] order-2" style="background-image: url(assets/preimushestva_BG.svg);background-repeat:no-repeat;background-size: cover;">  
-        <h2 class="gothic main-h1 text-white mb-11 pt-11 text-center" style="color:#FBA834;">Только топливо без комиссий и сборов</h2>
+        <h2 class="gothic main-h1 text-white mb-11 pt-11 text-center" style="color:#FBA834;">При оформлении договора в июне - топливные карты бесплатно</h2>
         <div class="w-full flex flex-col lg:flex-row xl:flex-row pb-8 xl:pb-36 lg:pb-36">
           <div class="w-full xl:w-2/5 lg:w-2/5 flex flex-col items-center order-2 xl:order-1 lg:order-1" style="background-color: #50C4ED;">
             <div class="list_items flex-1 flex flex-col items-center justify-center pt-10 xl:pt-0 lg:pt-0 px-5 xl:px-0 lg:px-0">
               <ul class="text-white">
-                <li class="list_item">Скидка от 1 до 3 р/л топлива на любых АЗС</li>
+                <li class="list_item">Только топливо без комиссий и сборов</li>
+                <li class="list_item">Скидка от 1 до 4 р/л топлива на любых АЗС</li>
                 <li class="list_item">Отсрочка до 30 дней</li>
                 <li class="list_item">Бесплатные карты и доставка по РФ</li>
                 <li class="list_item">Овердрафт на выходные</li>
                 <li class="list_item">Бесплатный online ЛК </li>
                 <li class="list_item">Выгрузка 1С и подключение API</li>
-                <li class="list_item">До конца июня - Топливные карты бесплатно</li>
               </ul>  
               <div class="relative w-full">
                 <svg class="absolute right-0 md:-right-[72px] " width="72" height="49" viewBox="0 0 72 49" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -138,7 +141,7 @@
         </div>
       </section>  
       
-      <section class="relative order-3 xl:order-4 lg:order-4">
+      <section id="baloon" class="relative order-3 xl:order-4 lg:order-4">
         <!-- <img class="w-full" src="assets/airbaloon-bg.png"> -->
         <picture class="w-full">
           <source srcset="assets/baloon_mob.png" media="(max-width: 900px)" type="image/png"/>
@@ -161,12 +164,18 @@
         </div>
       </section>
       <section id="calc" class="w-full bg-heroGray-100 z-50 order-3 md:order-5 hidden">
+      <!-- <section id="calc" class="w-full bg-heroGray-100 z-50 order-3 md:order-5"> -->
         <div class="w-full md:w-[728px] mx-auto text-center py-3 px-2 md:px-5">
           <h3 class="gothic text-[23px] md:text-[40px] pt-5 md:pt-10 text-left">Топливный калькулятор</h3>
           <p class="pt-3 text-[15px] md:text-xl grey text-left">Рассчитайте сколько сэкономит топливная карта Инфорком</p>
           <div class="w-full mt-4">
-            <input type="text" id="geo1" placeholder="Введите регион перевозок" class="geo"> 
-            <input type="text" id="geo2" placeholder="Дополнительный регион" class="geo">
+            <div class="flex">
+              <div class="grow">
+                <input type="text" id="geo1" placeholder="Введите регион перевозок" class="geo"> 
+              </div>
+                <button role="button" id="geoplus" class="geo w-[78px] h-[78px] mt-9" onclick="plusGeo(this)">+</button> 
+            </div>
+            <input type="text" id="geo2" placeholder="Дополнительный регион" class="geo hidden">
             <div class="button-block">
               <button type="button" onclick="btnHandler(this)" data-ftype="dt" class="btn-block left active">ДТ</button>
               <button type="button" onclick="btnHandler(this)" data-ftype="petrol" class="btn-block">БЕНЗИН</button>
@@ -191,7 +200,7 @@
               </div>
             </div>            
             <div class="w-full my-20">
-              <button type="button" class="w-full btn blue flex items-center justify-center" onclick="showResults()">
+              <button type="button" id="showResults" class="w-full btn blue flex items-center justify-center" onclick="showResults()">
                 <svg class="mr-2" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M24 4.5H1.5V24H24V4.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   <path d="M24 12H30L34.5 16.5V24H24V12Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -220,10 +229,11 @@
                   <span class="legend_record font-bold">ИТОГО<span id="total_total" class="amount">0.00 &#8381;</span></span>
                 </div>
                 <img src="assets/LogoBG.png" class="mx-auto my-0 w-[110px] md:w-auto" alt="inforkom">
+                <a href="https://inforkom.ru/images/docs/kp_2.pdf" target="_blank" class="btn heroblue w-11/12 md:w-auto text-[21px] md:text-3xl px-1 md:px-3 rounded-full mt-7 mb-7 md:mt-16 md:mb-28">Коммерческое предложение</a>             
               </div> 
-                    
+              
             </div>
-            <button type="button" class="btn heroblue w-11/12 md:w-auto text-[21px] md:text-3xl px-1 md:px-3 rounded-full mt-7 mb-7 md:mt-16 md:mb-28">Коммерческое предложение</button>     
+            <!-- <button type="button" class="btn heroblue w-11/12 md:w-auto text-[21px] md:text-3xl px-1 md:px-3 rounded-full mt-7 mb-7 md:mt-16 md:mb-28">Коммерческое предложение</button>      -->
           </div>
         </div>
       </section>        
@@ -241,14 +251,16 @@
             <li class="list_item_star">Грузовой эвакуатор 24/7</li>
           </ul> 
           <img class="w-full xl:w-1/2 lg:w-1/2 self-center" src="assets/zp_man.png" loading="lazy"/> 
-          <button type="button" class="w-full xl:w-1/2 lg:w-1/2 self-center py-8 rounded-3xl text-white text-3xl mt-0" style="background-color:#387ADF;">Подробнее</button>
+          <a type="button" class="w-full xl:w-1/2 lg:w-1/2 self-center py-8 rounded-3xl text-white text-3xl mt-0 text-center" style="background-color:#387ADF;" href="tel:+74993918910">+7 (499) 391-89-10</a>
         </div>
       </section>
 
       <section id="contact_form" class="w-full flex justify-center order-7" style="background-color:#387ADF">
-        <div class="w-11/12 xl:w-1/2 lg:w-1/2 flex flex-col h-full justify-center  mt-11 mb-20">
-          <h3 class="gothic main-h3-form pt-10 text-center text-white">Нужна консультация?</h3>
-          <p class="text-base xl:text-2xl lg:text-2xl leading-5 xl:leading-9 lg:leading-9 text-white text-center pt-4 pb-10">Оставьт свои контактные данные и мы свяжемся с вами.</p>
+        <div class="w-11/12 xl:w-1/2 lg:w-1/2 flex flex-col h-full justify-center items-center mt-11 mb-20">
+          <div class="max-w-[700px] pt-10 px-[31px]">
+          <h3 class="gothic main-h3-form text-white md:whitespace-nowrap">Нужна консультация?</h3>
+          <p class="text-base xl:text-2xl lg:text-2xl leading-5 xl:leading-9 lg:leading-9 text-white pt-4 pb-10">Оставьт свои контактные данные и мы свяжемся с вами.</p>
+          </div>
           <!-- <input type="text" class="form-field"> 
           <input type="text" class="form-field">
           <button type="button" class="btn orange">Отправить</button> -->

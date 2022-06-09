@@ -24,6 +24,10 @@ $('#geo1').suggestions(
         type: "ADDRESS",
              onSelect: function(suggestion) {
               selectedRegions.reg1 = suggestion.data.region;
+              window.scrollTo({
+                top:document.getElementById('slider1').offsetTop - 260,
+                behavior: 'smooth'
+              })              
               calc();
         },
         onSelectNothing: function() {
@@ -39,6 +43,10 @@ $('#geo2').suggestions(
       type: "ADDRESS",
            onSelect: function(suggestion) {
             selectedRegions.reg2 = suggestion.data.region;
+            window.scrollTo({
+              top:document.getElementById('slider2').offsetTop - 260,
+              behavior: 'smooth'
+            })              
             calc();
       },
       onSelectNothing: function() {
@@ -66,14 +74,19 @@ const hasVat = () =>document.querySelector('#vat_select button.active').dataset.
 
 const setAlert = (el) => {
     el.classList.add('alert');
-    window.scrollTo({
-      top:el.offsetTop - 60,
-      behavior: 'smooth'
-    })
+    console.log('alert',el.offsetTop - 60)
+    // el.scrollIntoView({block: "center", behavior: "smooth"});
+    setTimeout(()=>{
+      // window.scrollTo({
+      //   top:el.offsetTop - 60,
+      //   behavior: 'smooth'
+      // })
+      el.scrollIntoView({block: "center", behavior: "smooth"})
+    },100)
+
 }
 
 const calc = async () => {
-  console.log('called calc');
   let str_reg = [];
   let count = 0;
   Object.keys(selectedRegions).map(i=>{
@@ -82,7 +95,6 @@ const calc = async () => {
       count++;
     }
   })
-  console.log(str_reg)
   if (!str_reg.length) {
     setAlert(document.getElementById('geo1'));
     return false;
@@ -366,12 +378,21 @@ let chartOptions = {
 economyChart.setOption(chartOptions);
 
 window.showResults = () => {
-  if (selectedRegions.reg1) {
+  if (selectedRegions.reg1 || selectedRegions.reg2) {
     document.getElementById('calcResult').classList.remove('hidden');
   }
   calc();
   economyChart.resize();
+  window.scrollTo({
+    top:document.getElementById('calcResult').offsetTop - 60,
+    behavior: 'smooth'
+  })  
   // economyChart.dispatchAction({ type: 'highlight', dataIndex: 0 })
+}
+
+window.plusGeo = (el) => {
+  document.getElementById('geo2').classList.remove('hidden');
+  el.setAttribute('disabled', true);
 }
 
 window.showCalc = () => {

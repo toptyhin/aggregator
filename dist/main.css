@@ -483,7 +483,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 .green-gradient {
       background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)),linear-gradient(to right, #049471, #049471);
     }
-.btn {
+.btnc {
   height: 55px;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -497,7 +497,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 @media (min-width: 768px) {
 
-  .btn {
+  .btnc {
     height: 78px;
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
@@ -505,35 +505,32 @@ Ensure the default browser behavior of the `hidden` attribute.
     line-height: 2.25rem;
   }
 }
-.btn {
+.btnc {
       border-radius:20px;
-    }
-.btn:hover, .btn:active, .b24-form-btn:hover, .b24-form-btn:active {
-      box-shadow: inset 0px 3px 8px rgba(0, 0, 0, 0.2);
     }
 .heroblue {
       background-color:#50C4ED;
     }
 p.grey {color:#434343;}
-.btn.grey {
+.btnс.grey {
       background-color: #434343
     }
-.btn.grey:hover, .btn.grey:active {
+.btnс.grey:hover, .btnс.grey:active {
       background-color:#686767;
     }
-.btn.blue {
+.btnс.blue {
       background-color:#387ADF;
     }
-.btn.blue:hover {
+.btnс.blue:hover {
       background-color:#3574D4;
     }
-.btn.grey:hover, .btn.grey:active {
+.btnс.grey:hover, .btnс.grey:active {
       background-color:#686767;
     }
-.btn.orange, .b24-form-btn {
+.btnс.orange, .b24-form-btn {
       background-color: #FBA834;
     }
-.btn.orange:hover, .btn.orange:active, .b24-form-btn:hover, .b24-form-btn:active {
+.btnс.orange:hover, .btnс.orange:active, .b24-form-btn:hover, .b24-form-btn:active {
       background-color:#E39B36;
     }
 .intro-top-left {
@@ -606,27 +603,6 @@ p.grey {color:#434343;}
 .intro-top-right .card {
       transform: translate(0, -30%);
     }
-.contactus {
-  position: absolute;
-  top: 0px;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  --tw-text-opacity: 1;
-  color: rgba(255, 255, 255, var(--tw-text-opacity));
-}
-@media (min-width: 768px) {
-
-  .contactus {
-    display: flex;
-  }
-}
-@media (min-width: 1024px) {
-
-  .contactus {
-    display: flex;
-  }
-}
 .top-menu {
   display: none;
   align-items: center;
@@ -689,32 +665,6 @@ p.grey {color:#434343;}
       background: radial-gradient(#9df9ff 0%, #4eb7cd 80%);
       /* height: 440px; */
     }
-.first-order {
-  margin-left: auto;
-  margin-right: auto;
-  height: 625px;
-  width: 91.666667%;
-  --tw-bg-opacity: 1;
-  background-color: rgba(78, 183, 205, var(--tw-bg-opacity));
-}
-@media (min-width: 768px) {
-
-  .first-order {
-    height: 24rem;
-    width: 75%;
-  }
-}
-@media (min-width: 1024px) {
-
-  .first-order {
-    height: 24rem;
-    width: 75%;
-  }
-}
-.first-order {
-      margin-top: -20px;
-      background: linear-gradient(#88e7ed,#4eb7cd);
-    }
 .right-title {
   position: absolute;
   top: 6rem;
@@ -743,12 +693,6 @@ p.grey {color:#434343;}
       .intro-top-right .card {
         transform: translate(0, -50%);
       }      
-    }
-@media (min-width: 768px) {
-      .first-order {
-        margin-top: -40px;
-        background: linear-gradient(#4eb7cd, #88e7ed 80%);
-      }
     }
 .phone {
   flex: 1 1 0%;
@@ -900,11 +844,45 @@ input.geo {
         box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.1);
         outline-color: rgba(128,128,128,0.54902);
         color: grey;
+        border: 2px solid transparent;
     }
+input.geo.alert {border: 2px solid #ffadad;}
 input.geo:hover, input.geo:focus, input.geo:active {
   outline-style: solid;
   outline-width: 2px;
 }
+#geoplus {
+  margin-bottom: 0.75rem;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  height: 55px;
+  width: 55px;
+  border-radius: 1rem;
+  --tw-bg-opacity: 1;
+  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+@media (min-width: 768px) {
+
+  #geoplus {
+    margin-top: 2.25rem;
+    height: 78px;
+    width: 78px;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+#geoplus {
+      box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.1);
+      outline-color: rgba(128,128,128,0.54902);
+      color: grey;
+      border: 1px solid transparent;
+    }
+#geoplus[disabled] {box-shadow:none}
+#geoplus:active:not([disabled]) {box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.2);}
 /* input.discount-form {
       @apply w-full h-full rounded-2xl px-5 pr-8 text-xl outline-white outline outline-2 bg-transparent text-zenith-blue;
     }
@@ -1143,6 +1121,9 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .z-50 {
   z-index: 50;
 }
+.order-3 {
+  order: 3;
+}
 .order-1 {
   order: 1;
 }
@@ -1151,9 +1132,6 @@ input.geo:hover, input.geo:focus, input.geo:active {
 }
 .order-4 {
   order: 4;
-}
-.order-3 {
-  order: 3;
 }
 .order-5 {
   order: 5;
@@ -1171,10 +1149,6 @@ input.geo:hover, input.geo:focus, input.geo:active {
   margin-left: auto;
   margin-right: auto;
 }
-.my-3 {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
-}
 .my-6 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -1186,6 +1160,27 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .my-0 {
   margin-top: 0px;
   margin-bottom: 0px;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.mt-9 {
+  margin-top: 2.25rem;
+}
+.mr-2 {
+  margin-right: 0.5rem;
+}
+.mt-20 {
+  margin-top: 5rem;
+}
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.mt-7 {
+  margin-top: 1.75rem;
+}
+.mb-7 {
+  margin-bottom: 1.75rem;
 }
 .mt-5 {
   margin-top: 1.25rem;
@@ -1226,24 +1221,6 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .mt-0 {
   margin-top: 0px;
 }
-.mr-2 {
-  margin-right: 0.5rem;
-}
-.mb-4 {
-  margin-bottom: 1rem;
-}
-.mt-4 {
-  margin-top: 1rem;
-}
-.mt-20 {
-  margin-top: 5rem;
-}
-.mt-7 {
-  margin-top: 1.75rem;
-}
-.mb-7 {
-  margin-bottom: 1.75rem;
-}
 .block {
   display: block;
 }
@@ -1268,53 +1245,53 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .hidden {
   display: none;
 }
-.h-full {
-  height: 100%;
-}
-.h-\[55px\] {
-  height: 55px;
-}
-.h-6 {
-  height: 1.5rem;
-}
-.h-96 {
-  height: 24rem;
-}
 .h-1 {
   height: 0.25rem;
 }
 .h-\[60px\] {
   height: 60px;
 }
+.h-6 {
+  height: 1.5rem;
+}
 .h-3\/4 {
   height: 75%;
 }
-.max-h-20 {
-  max-height: 5rem;
+.h-\[78px\] {
+  height: 78px;
+}
+.h-96 {
+  height: 24rem;
+}
+.h-full {
+  height: 100%;
 }
 .max-h-\[1039px\] {
   max-height: 1039px;
 }
-.w-full {
-  width: 100%;
-}
-.w-3\/4 {
-  width: 75%;
-}
-.w-6 {
-  width: 1.5rem;
-}
-.w-20 {
-  width: 5rem;
-}
-.w-56 {
-  width: 14rem;
+.max-h-20 {
+  max-height: 5rem;
 }
 .w-1 {
   width: 0.25rem;
 }
+.w-full {
+  width: 100%;
+}
 .w-1\/2 {
   width: 50%;
+}
+.w-6 {
+  width: 1.5rem;
+}
+.w-3\/4 {
+  width: 75%;
+}
+.w-\[78px\] {
+  width: 78px;
+}
+.w-\[110px\] {
+  width: 110px;
 }
 .w-11\/12 {
   width: 91.666667%;
@@ -1322,20 +1299,20 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .w-5\/6 {
   width: 83.333333%;
 }
-.w-\[110px\] {
-  width: 110px;
+.w-20 {
+  width: 5rem;
+}
+.w-56 {
+  width: 14rem;
 }
 .flex-1 {
   flex: 1 1 0%;
 }
-.flex-shrink {
-  flex-shrink: 1;
-}
 .flex-grow {
   flex-grow: 1;
 }
-.border-collapse {
-  border-collapse: collapse;
+.grow {
+  flex-grow: 1;
 }
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1369,9 +1346,6 @@ input.geo:hover, input.geo:focus, input.geo:active {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.rounded-2xl {
-  border-radius: 1rem;
-}
 .rounded {
   border-radius: 0.25rem;
 }
@@ -1384,20 +1358,17 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .border {
   border-width: 1px;
 }
-.bg-transparent {
-  background-color: transparent;
-}
 .bg-heroBlue-100 {
   --tw-bg-opacity: 1;
   background-color: rgba(56, 122, 223, var(--tw-bg-opacity));
 }
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-}
 .bg-heroGray-100 {
   --tw-bg-opacity: 1;
   background-color: rgba(221, 221, 221, var(--tw-bg-opacity));
+}
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 }
 .bg-cover {
   background-size: cover;
@@ -1408,11 +1379,11 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .bg-no-repeat {
   background-repeat: no-repeat;
 }
-.p-2 {
-  padding: 0.5rem;
-}
 .p-1 {
   padding: 0.25rem;
+}
+.p-2 {
+  padding: 0.5rem;
 }
 .px-5 {
   padding-left: 1.25rem;
@@ -1422,9 +1393,29 @@ input.geo:hover, input.geo:focus, input.geo:active {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
 }
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+.px-7 {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
 }
 .py-5 {
   padding-top: 1.25rem;
@@ -1446,40 +1437,22 @@ input.geo:hover, input.geo:focus, input.geo:active {
   padding-left: 7rem;
   padding-right: 7rem;
 }
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-.py-12 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 .px-20 {
   padding-left: 5rem;
   padding-right: 5rem;
 }
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+.pt-5 {
+  padding-top: 1.25rem;
 }
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+.pt-3 {
+  padding-top: 0.75rem;
 }
-.px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-.px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-}
-.px-7 {
-  padding-left: 1.75rem;
-  padding-right: 1.75rem;
-}
-.pr-8 {
-  padding-right: 2rem;
+.pb-9 {
+  padding-bottom: 2.25rem;
 }
 .pt-11 {
   padding-top: 2.75rem;
@@ -1514,44 +1487,11 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .pl-6 {
   padding-left: 1.5rem;
 }
-.pt-3 {
-  padding-top: 0.75rem;
-}
-.pt-5 {
-  padding-top: 1.25rem;
-}
-.pb-9 {
-  padding-bottom: 2.25rem;
-}
 .text-left {
   text-align: left;
 }
 .text-center {
   text-align: center;
-}
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
 }
 .text-\[23px\] {
   font-size: 23px;
@@ -1562,8 +1502,25 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .text-\[21px\] {
   font-size: 21px;
 }
-.font-normal {
-  font-weight: 400;
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 .font-bold {
   font-weight: 700;
@@ -1584,10 +1541,6 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .leading-5 {
   line-height: 1.25rem;
 }
-.text-zenith-blue {
-  --tw-text-opacity: 1;
-  color: rgba(0, 24, 174, var(--tw-text-opacity));
-}
 .text-white {
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
@@ -1600,25 +1553,12 @@ input.geo:hover, input.geo:focus, input.geo:active {
   --tw-text-opacity: 1;
   color: rgba(36, 145, 174, var(--tw-text-opacity));
 }
-.underline {
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
-}
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), var(--tw-shadow);
   box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), var(--tw-shadow);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
-}
-.outline {
-  outline-style: solid;
-}
-.outline-2 {
-  outline-width: 2px;
-}
-.outline-white {
-  outline-color: #fff;
 }
 .ring {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
@@ -1631,16 +1571,8 @@ input.geo:hover, input.geo:focus, input.geo:active {
   --tw-blur: blur(8px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
-.sepia {
-  --tw-sepia: sepia(100%);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-.backdrop-filter {
-  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-          backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 .transition {
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
@@ -2052,48 +1984,6 @@ input.geo:hover, input.geo:focus, input.geo:active {
   .suggestions-promo a:hover{filter:grayscale(0)}
   .suggestions-promo svg{height:20px;vertical-align:bottom}
   @media screen and (min-width:600px){.suggestions-promo{position:absolute;top:0;right:0;text-align:left}} */
-  .after\:absolute::after {
-  content: var(--tw-content);
-  position: absolute;
-}
-  .after\:top-4::after {
-  content: var(--tw-content);
-  top: 1rem;
-}
-  .after\:right-8::after {
-  content: var(--tw-content);
-  right: 2rem;
-}
-  .after\:block::after {
-  content: var(--tw-content);
-  display: block;
-}
-  .after\:h-5::after {
-  content: var(--tw-content);
-  height: 1.25rem;
-}
-  .after\:w-5::after {
-  content: var(--tw-content);
-  width: 1.25rem;
-}
-  .after\:rotate-45::after {
-  content: var(--tw-content);
-  --tw-rotate: 45deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-  .after\:border-t-2::after {
-  content: var(--tw-content);
-  border-top-width: 2px;
-}
-  .after\:border-white::after {
-  content: var(--tw-content);
-  --tw-border-opacity: 1;
-  border-color: rgba(255, 255, 255, var(--tw-border-opacity));
-}
-  .after\:content-\[\'\'\]::after {
-  --tw-content: '';
-  content: var(--tw-content);
-}
   @media (min-width: 640px) {
 
   .sm\:hidden {
@@ -2153,17 +2043,17 @@ input.geo:hover, input.geo:focus, input.geo:active {
     padding-right: 0.75rem;
   }
 
+  .md\:px-7 {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
+
   .md\:pt-10 {
     padding-top: 2.5rem;
   }
 
   .md\:pt-5 {
     padding-top: 1.25rem;
-  }
-
-  .md\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
   }
 
   .md\:text-\[40px\] {
@@ -2173,6 +2063,11 @@ input.geo:hover, input.geo:focus, input.geo:active {
   .md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 }
   @media (min-width: 1024px) {
@@ -2270,11 +2165,6 @@ input.geo:hover, input.geo:focus, input.geo:active {
   .lg\:px-0 {
     padding-left: 0px;
     padding-right: 0px;
-  }
-
-  .lg\:px-5 {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
   }
 
   .lg\:pb-36 {
@@ -2380,6 +2270,11 @@ input.geo:hover, input.geo:focus, input.geo:active {
     flex-wrap: nowrap;
   }
 
+  .xl\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
   .xl\:px-\[85px\] {
     padding-left: 85px;
     padding-right: 85px;
@@ -2388,11 +2283,6 @@ input.geo:hover, input.geo:focus, input.geo:active {
   .xl\:px-0 {
     padding-left: 0px;
     padding-right: 0px;
-  }
-
-  .xl\:px-10 {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
   }
 
   .xl\:pb-36 {

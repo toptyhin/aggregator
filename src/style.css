@@ -204,6 +204,17 @@
       @apply outline outline-2;
     }
 
+    #geoplus {
+      @apply w-[55px] h-[55px] md:w-[78px] md:h-[78px] rounded-2xl my-3 px-5 mt-4 md:mt-9 text-lg md:text-4xl bg-white ml-2;
+      box-shadow: 0px 8px 12px 0px rgb(0 0 0 / 10%);
+      outline-color: #8080808c;
+      color: grey;
+      border: 1px solid transparent;
+    }
+    #geoplus[disabled] {box-shadow:none}    
+
+    #geoplus:active:not([disabled]) {box-shadow: inset 0px 0px 8px rgb(0 0 0 / 20%);}
+
     /* input.discount-form {
       @apply w-full h-full rounded-2xl px-5 pr-8 text-xl outline-white outline outline-2 bg-transparent text-zenith-blue;
     }
