@@ -361,6 +361,9 @@
       background-color: #FCE850;
       flex-shrink:0;
     }
+    .list_item_star {
+      font-size:24px;
+    }
     .list_item_star::before {
       content:'\2605';
       margin-right:8px;
