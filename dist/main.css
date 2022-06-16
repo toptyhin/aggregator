@@ -483,7 +483,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 .green-gradient {
       background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)),linear-gradient(to right, #049471, #049471);
     }
-.btnc {
+.btn {
   height: 55px;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -497,7 +497,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 @media (min-width: 768px) {
 
-  .btnc {
+  .btn {
     height: 78px;
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
@@ -505,37 +505,66 @@ Ensure the default browser behavior of the `hidden` attribute.
     line-height: 2.25rem;
   }
 }
-.btnc {
+.btn {
       border-radius:20px;
+    }
+.btn:hover, .btn:active, .b24-form-btn:hover, .b24-form-btn:active {
+      box-shadow: inset 0px 3px 8px rgba(0, 0, 0, 0.2);
     }
 .heroblue {
       background-color:#50C4ED;
     }
 p.grey {color:#434343;}
-.btnс.grey {
+.btn.grey {
       background-color: #434343
     }
-.btnс.grey:hover, .btnс.grey:active {
+.btn.grey:hover, .btn.grey:active {
       background-color:#686767;
     }
-.btnс.blue {
+.btn.blue {
       background-color:#387ADF;
     }
-.btnс.blue:hover {
+.btn.blue:hover {
       background-color:#3574D4;
     }
-.btnс.grey:hover, .btnс.grey:active {
+.btn.grey:hover, .btn.grey:active {
       background-color:#686767;
     }
-.btnс.orange, .b24-form-btn {
+.btn.orange, .b24-form-btn {
       background-color: #FBA834;
     }
-.btnс.orange:hover, .btnс.orange:active, .b24-form-btn:hover, .b24-form-btn:active {
+.btn.orange:hover, .btn.orange:active, .b24-form-btn:hover, .b24-form-btn:active {
       background-color:#E39B36;
     }
+.righttop {
+  top: 1.5rem;
+  right: 1.5rem;
+}
+.rightmidle {
+  top: 0.25rem;
+  right: 0px;
+      transform: translate(10%, 100%);
+}
+.rightbottom {
+  bottom: 1.5rem;
+  right: 1.5rem;
+}
+.leftmidle {
+  top: 0.25rem;
+  left: 0px;
+      transform: translate(10%, 100%);
+}
+.lefttop {
+  top: 1.5rem;
+  left: 1.5rem;
+}
+.leftbottom {
+  bottom: 1.5rem;
+  left: 1.5rem;
+}
 .intro-top-left {
-  order: 2;
   display: flex;
+  height: 100%;
   width: 100%;
   flex-direction: column;
   align-items: center;
@@ -546,17 +575,32 @@ p.grey {color:#434343;}
 @media (min-width: 1024px) {
 
   .intro-top-left {
-    order: 1;
-    width: 58.333333%;
     flex-direction: row;
   }
 }
 @media (min-width: 1280px) {
 
   .intro-top-left {
+    flex-direction: row;
+  }
+}
+.intro-top-left-wrap {
+  order: 2;
+  width: 100%;
+  background-color: transparent;
+}
+@media (min-width: 1024px) {
+
+  .intro-top-left-wrap {
     order: 1;
     width: 58.333333%;
-    flex-direction: row;
+  }
+}
+@media (min-width: 1280px) {
+
+  .intro-top-left-wrap {
+    order: 1;
+    width: 58.333333%;
   }
 }
 .intro-top-right {
@@ -1103,6 +1147,12 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .relative {
   position: relative;
 }
+.inset-5 {
+  top: 1.25rem;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  left: 1.25rem;
+}
 .inset-0 {
   top: 0px;
   right: 0px;
@@ -1121,9 +1171,6 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .z-50 {
   z-index: 50;
 }
-.order-3 {
-  order: 3;
-}
 .order-1 {
   order: 1;
 }
@@ -1132,6 +1179,9 @@ input.geo:hover, input.geo:focus, input.geo:active {
 }
 .order-4 {
   order: 4;
+}
+.order-3 {
+  order: 3;
 }
 .order-5 {
   order: 5;
@@ -1161,27 +1211,6 @@ input.geo:hover, input.geo:focus, input.geo:active {
   margin-top: 0px;
   margin-bottom: 0px;
 }
-.mt-4 {
-  margin-top: 1rem;
-}
-.mt-9 {
-  margin-top: 2.25rem;
-}
-.mr-2 {
-  margin-right: 0.5rem;
-}
-.mt-20 {
-  margin-top: 5rem;
-}
-.mb-4 {
-  margin-bottom: 1rem;
-}
-.mt-7 {
-  margin-top: 1.75rem;
-}
-.mb-7 {
-  margin-bottom: 1.75rem;
-}
 .mt-5 {
   margin-top: 1.25rem;
 }
@@ -1190,6 +1219,9 @@ input.geo:hover, input.geo:focus, input.geo:active {
 }
 .mb-11 {
   margin-bottom: 2.75rem;
+}
+.mb-0 {
+  margin-bottom: 0px;
 }
 .mt-10 {
   margin-top: 2.5rem;
@@ -1211,6 +1243,27 @@ input.geo:hover, input.geo:focus, input.geo:active {
 }
 .ml-2 {
   margin-left: 0.5rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.mt-9 {
+  margin-top: 2.25rem;
+}
+.mr-2 {
+  margin-right: 0.5rem;
+}
+.mt-20 {
+  margin-top: 5rem;
+}
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.mt-7 {
+  margin-top: 1.75rem;
+}
+.mb-7 {
+  margin-bottom: 1.75rem;
 }
 .mt-11 {
   margin-top: 2.75rem;
@@ -1257,14 +1310,14 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .h-3\/4 {
   height: 75%;
 }
+.h-full {
+  height: 100%;
+}
 .h-\[78px\] {
   height: 78px;
 }
 .h-96 {
   height: 24rem;
-}
-.h-full {
-  height: 100%;
 }
 .max-h-\[1039px\] {
   max-height: 1039px;
@@ -1287,12 +1340,6 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .w-3\/4 {
   width: 75%;
 }
-.w-\[78px\] {
-  width: 78px;
-}
-.w-\[110px\] {
-  width: 110px;
-}
 .w-11\/12 {
   width: 91.666667%;
 }
@@ -1302,8 +1349,17 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .w-20 {
   width: 5rem;
 }
+.w-\[78px\] {
+  width: 78px;
+}
+.w-\[110px\] {
+  width: 110px;
+}
 .w-56 {
   width: 14rem;
+}
+.max-w-\[700px\] {
+  max-width: 700px;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1362,13 +1418,13 @@ input.geo:hover, input.geo:focus, input.geo:active {
   --tw-bg-opacity: 1;
   background-color: rgba(56, 122, 223, var(--tw-bg-opacity));
 }
-.bg-heroGray-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgba(221, 221, 221, var(--tw-bg-opacity));
-}
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+}
+.bg-heroGray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(221, 221, 221, var(--tw-bg-opacity));
 }
 .bg-cover {
   background-size: cover;
@@ -1392,22 +1448,6 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
-}
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-.px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-.px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
 }
 .px-4 {
   padding-left: 1rem;
@@ -1441,18 +1481,32 @@ input.geo:hover, input.geo:focus, input.geo:active {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+.px-\[31px\] {
+  padding-left: 31px;
+  padding-right: 31px;
+}
 .px-20 {
   padding-left: 5rem;
   padding-right: 5rem;
 }
-.pt-5 {
-  padding-top: 1.25rem;
-}
-.pt-3 {
-  padding-top: 0.75rem;
-}
-.pb-9 {
-  padding-bottom: 2.25rem;
+.pl-\[31px\] {
+  padding-left: 31px;
 }
 .pt-11 {
   padding-top: 2.75rem;
@@ -1478,6 +1532,18 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .pb-20 {
   padding-bottom: 5rem;
 }
+.pt-8 {
+  padding-top: 2rem;
+}
+.pt-5 {
+  padding-top: 1.25rem;
+}
+.pt-3 {
+  padding-top: 0.75rem;
+}
+.pb-9 {
+  padding-bottom: 2.25rem;
+}
 .pl-4 {
   padding-left: 1rem;
 }
@@ -1492,15 +1558,6 @@ input.geo:hover, input.geo:focus, input.geo:active {
 }
 .text-center {
   text-align: center;
-}
-.text-\[23px\] {
-  font-size: 23px;
-}
-.text-\[15px\] {
-  font-size: 15px;
-}
-.text-\[21px\] {
-  font-size: 21px;
 }
 .text-2xl {
   font-size: 1.5rem;
@@ -1521,6 +1578,15 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+.text-\[23px\] {
+  font-size: 23px;
+}
+.text-\[15px\] {
+  font-size: 15px;
+}
+.text-\[21px\] {
+  font-size: 21px;
 }
 .font-bold {
   font-weight: 700;
@@ -2028,9 +2094,18 @@ input.geo:hover, input.geo:focus, input.geo:active {
     width: auto;
   }
 
+  .md\:whitespace-nowrap {
+    white-space: nowrap;
+  }
+
   .md\:bg-white {
     --tw-bg-opacity: 1;
     background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+  }
+
+  .md\:px-7 {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
   }
 
   .md\:px-5 {
@@ -2043,17 +2118,17 @@ input.geo:hover, input.geo:focus, input.geo:active {
     padding-right: 0.75rem;
   }
 
-  .md\:px-7 {
-    padding-left: 1.75rem;
-    padding-right: 1.75rem;
-  }
-
   .md\:pt-10 {
     padding-top: 2.5rem;
   }
 
   .md\:pt-5 {
     padding-top: 1.25rem;
+  }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 
   .md\:text-\[40px\] {
@@ -2063,11 +2138,6 @@ input.geo:hover, input.geo:focus, input.geo:active {
   .md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-
-  .md\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
   }
 }
   @media (min-width: 1024px) {
@@ -2270,11 +2340,6 @@ input.geo:hover, input.geo:focus, input.geo:active {
     flex-wrap: nowrap;
   }
 
-  .xl\:px-10 {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
-
   .xl\:px-\[85px\] {
     padding-left: 85px;
     padding-right: 85px;
@@ -2283,6 +2348,11 @@ input.geo:hover, input.geo:focus, input.geo:active {
   .xl\:px-0 {
     padding-left: 0px;
     padding-right: 0px;
+  }
+
+  .xl\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
   }
 
   .xl\:pb-36 {
