@@ -1061,6 +1061,56 @@ input.geo:hover, input.geo:focus, input.geo:active {
   --tw-translate-x: 0px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+#modal button {
+      background: #FBA834;
+    }
+#back_dialog {
+      background: linear-gradient(180deg, #EFF1FA 0%, #E4E7F6 100%);      
+      max-width:800px;
+      max-height:600px;
+    }
+.succ_title {
+      text-align:center;
+      color: #434343;
+      font-size: 53px;
+    }
+.ball {
+  position: absolute;
+  display: block;
+  border-radius: 9999px;
+}
+.ball.b_1 {
+  left: 1.25rem;
+  bottom: 1.25rem;
+  height: 8rem;
+  width: 8rem;
+      background:#D7D9F8;
+      z-index: -1;
+}
+.ball.b_2 {
+  left: 0.25rem;
+  top: 0.25rem;
+  height: 13rem;
+  width: 13rem;
+      background:#D6D8F6;
+      z-index: -1;
+}
+.ball.b_3 {
+  right: -5rem;
+  bottom: -5rem;
+  height: 20rem;
+  width: 20rem;
+      background:#DDDEEB;
+      z-index: -1;
+}
+.ball.b_4 {
+  right: 5rem;
+  bottom: 5rem;
+  height: 11rem;
+  width: 11rem;
+      background:#D0D1E0;
+      z-index: -1;
+}
 .list_items {
       max-width:454px;
     }
@@ -1079,6 +1129,9 @@ input.geo:hover, input.geo:focus, input.geo:active {
       border-radius:18px;
       background-color: #FCE850;
       flex-shrink:0;
+    }
+.list_item_star {
+      font-size:24px;
     }
 .list_item_star::before {
       content:'\2605';
@@ -1170,6 +1223,9 @@ input.geo:hover, input.geo:focus, input.geo:active {
 }
 .z-50 {
   z-index: 50;
+}
+.z-10 {
+  z-index: 10;
 }
 .order-1 {
   order: 1;
@@ -1325,6 +1381,9 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .max-h-20 {
   max-height: 5rem;
 }
+.min-h-full {
+  min-height: 100%;
+}
 .w-1 {
   width: 0.25rem;
 }
@@ -1385,6 +1444,9 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .flex-wrap {
   flex-wrap: wrap;
 }
+.items-end {
+  align-items: flex-end;
+}
 .items-center {
   align-items: center;
 }
@@ -1396,6 +1458,12 @@ input.geo:hover, input.geo:focus, input.geo:active {
 }
 .self-center {
   align-self: center;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.overflow-y-auto {
+  overflow-y: auto;
 }
 .truncate {
   overflow: hidden;
@@ -1410,6 +1478,9 @@ input.geo:hover, input.geo:focus, input.geo:active {
 }
 .rounded-3xl {
   border-radius: 1.5rem;
+}
+.rounded-lg {
+  border-radius: 0.5rem;
 }
 .border {
   border-width: 1px;
@@ -1426,6 +1497,13 @@ input.geo:hover, input.geo:focus, input.geo:active {
   --tw-bg-opacity: 1;
   background-color: rgba(221, 221, 221, var(--tw-bg-opacity));
 }
+.bg-gray-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(107, 114, 128, var(--tw-bg-opacity));
+}
+.bg-opacity-75 {
+  --tw-bg-opacity: 0.75;
+}
 .bg-cover {
   background-size: cover;
 }
@@ -1440,6 +1518,9 @@ input.geo:hover, input.geo:focus, input.geo:active {
 }
 .p-2 {
   padding: 0.5rem;
+}
+.p-4 {
+  padding: 1rem;
 }
 .px-5 {
   padding-left: 1.25rem;
@@ -1553,6 +1634,15 @@ input.geo:hover, input.geo:focus, input.geo:active {
 .pl-6 {
   padding-left: 1.5rem;
 }
+.pt-24 {
+  padding-top: 6rem;
+}
+.pb-4 {
+  padding-bottom: 1rem;
+}
+.pt-14 {
+  padding-top: 3.5rem;
+}
 .text-left {
   text-align: left;
 }
@@ -1626,6 +1716,13 @@ input.geo:hover, input.geo:focus, input.geo:active {
   box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), var(--tw-shadow);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
 }
+.shadow-xl {
+  --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), var(--tw-shadow);
+  box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
+}
 .ring {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
@@ -1644,6 +1741,16 @@ input.geo:hover, input.geo:focus, input.geo:active {
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.transition-opacity {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.transition-all {
+  transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -2052,8 +2159,38 @@ input.geo:hover, input.geo:focus, input.geo:active {
   @media screen and (min-width:600px){.suggestions-promo{position:absolute;top:0;right:0;text-align:left}} */
   @media (min-width: 640px) {
 
+  .sm\:my-8 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
   .sm\:hidden {
     display: none;
+  }
+
+  .sm\:w-full {
+    width: 100%;
+  }
+
+  .sm\:max-w-4xl {
+    max-width: 56rem;
+  }
+
+  .sm\:items-center {
+    align-items: center;
+  }
+
+  .sm\:p-0 {
+    padding: 0px;
+  }
+
+  .sm\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .sm\:pb-4 {
+    padding-bottom: 1rem;
   }
 }
   @media (min-width: 768px) {
@@ -2138,6 +2275,11 @@ input.geo:hover, input.geo:focus, input.geo:active {
   .md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
   @media (min-width: 1024px) {

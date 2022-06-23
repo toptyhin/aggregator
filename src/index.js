@@ -289,6 +289,23 @@ slider2.noUiSlider.on('update', (val)=>{
     displayValue(slider2, val, ' Авто')
 });
 
+const popup = () => {
+  const modal = document.getElementById('modal');
+  modal.style.display='block'
+  const backdrop = document.getElementById('back_modal');
+  backdrop.style.opacity=1;
+  const dialog = document.getElementById('back_dialog');
+  setTimeout(()=>{dialog.style.opacity=1},1000);
+}
+
+if (location.hash === '#success') {
+  popup();
+}
+
+window.removePopup = () => {
+  document.getElementById('modal').remove();
+}
+
 const chartDom = document.getElementById('charts');
 const economyChart = echarts.init(chartDom);
 economyChart.on('mouseover',(e)=>{

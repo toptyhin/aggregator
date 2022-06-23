@@ -369,6 +369,46 @@
     #map_canvas_holder.active {
       @apply translate-x-0
     }
+
+    #modal button {
+      background: #FBA834;
+    }
+
+    #back_dialog {
+      background: linear-gradient(180deg, #EFF1FA 0%, #E4E7F6 100%);      
+      max-width:800px;
+      max-height:600px;
+    }
+
+    .succ_title {
+      text-align:center;
+      color: #434343;
+      font-size: 53px;
+    }
+
+    .ball {
+      @apply block absolute rounded-full;
+    }
+    .ball.b_1 {
+      @apply left-5 bottom-5 w-32 h-32;
+      background:#D7D9F8;
+      z-index: -1;
+    }
+    .ball.b_2 {
+      @apply left-1 top-1 w-52 h-52;
+      background:#D6D8F6;
+      z-index: -1;
+    }
+    .ball.b_3 {
+      @apply -right-20 -bottom-20 w-80 h-80;
+      background:#DDDEEB;
+      z-index: -1;
+    }        
+    .ball.b_4 {
+      @apply right-20 bottom-20 w-44 h-44;
+      background:#D0D1E0;
+      z-index: -1;
+    }      
     .list_items {
       max-width:454px;
     }
@@ -389,6 +429,9 @@
       border-radius:18px;
       background-color: #FCE850;
       flex-shrink:0;
+    }
+    .list_item_star {
+      font-size:24px;
     }
     .list_item_star::before {
       content:'\2605';
