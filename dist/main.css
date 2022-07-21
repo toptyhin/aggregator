@@ -1065,15 +1065,24 @@ input.geo:hover, input.geo:focus, input.geo:active {
       background: #FBA834;
     }
 #back_dialog {
+  width: 100%;
+}
+@media (min-width: 768px) {
+
+  #back_dialog {
+    max-width: 56rem;
+  }
+}
+#back_dialog {
       background: linear-gradient(180deg, #EFF1FA 0%, #E4E7F6 100%);      
-      max-width:800px;
-      max-height:600px;
+      /* max-width:800px;
+      max-height:600px; */
     }
 .succ_title {
-      text-align:center;
+  text-align: center;
       color: #434343;
-      font-size: 53px;
-    }
+      font-size: 40px;
+}
 .ball {
   position: absolute;
   display: block;
@@ -1419,6 +1428,9 @@ input.geo:hover, input.geo:focus, input.geo:active {
 }
 .max-w-\[700px\] {
   max-width: 700px;
+}
+.max-w-full {
+  max-width: 100%;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1798,6 +1810,10 @@ input.geo:hover, input.geo:focus, input.geo:active {
     max-height:1039px;
   }
 
+  .succ_title {
+    font-size: 53px;
+  }
+
 }
 
 ::-webkit-scrollbar {
@@ -2164,16 +2180,12 @@ input.geo:hover, input.geo:focus, input.geo:active {
     margin-bottom: 2rem;
   }
 
+  .sm\:block {
+    display: block;
+  }
+
   .sm\:hidden {
     display: none;
-  }
-
-  .sm\:w-full {
-    width: 100%;
-  }
-
-  .sm\:max-w-4xl {
-    max-width: 56rem;
   }
 
   .sm\:items-center {
@@ -2231,6 +2243,10 @@ input.geo:hover, input.geo:focus, input.geo:active {
     width: auto;
   }
 
+  .md\:max-w-4xl {
+    max-width: 56rem;
+  }
+
   .md\:whitespace-nowrap {
     white-space: nowrap;
   }
@@ -2266,6 +2282,11 @@ input.geo:hover, input.geo:focus, input.geo:active {
   .md\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
+  }
+
+  .md\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
   }
 
   .md\:text-\[40px\] {

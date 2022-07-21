@@ -23,7 +23,7 @@
           <img class="hidden md:block lg:hidden" src="assets/inforkom-black-logo.png" alt="Инфорком">
           <img class="md:hidden" src="assets/inforkom-logo.png" alt="Инфорком">
 
-          <a class="phone" href="tel:+74993918910">+7 (499) 391-89-10</a>
+          <a class="phone" href="tel:+74993907587">+7 (499) 390‑75‑87</a>
         </div>
         <!-- <div class="hidden lg:flex w-1/2 items-center px-10 justify-around"> -->
           <div class="top-menu">
@@ -65,7 +65,7 @@
       <section class="intro-top w-full flex flex-col lg:flex-row xl:flex-row order-1">
         <div class="intro-top-left-wrap relative">
           <div class="intro-top-left">
-            <div class="inset-5 absolute">
+            <div class="inset-5 absolute overflow-hidden">
               <img class="absolute rightbottom" src="assets/balls/Logo_eka_ball 1.png" loading="lazy"/>
               <img class="absolute righttop" src="assets/balls/Logo_gaz_ball 1.png" loading="lazy"/>
               <img class="absolute rightmidle" src="assets/balls/Logo_mag_ball 1.png" loading="lazy"/>
@@ -76,7 +76,7 @@
             <div class="flex flex-col mt-5 xl:mt-30 lg:mt-30 px-auto w-11/12 lg:w-[662px] xl:w-[662px] mb-40 lg:mb-0">
               <span id="hero" class="pl-[31px]">
                 <h1 class="gothic main-h1 text-white mb-11"> Скидка от 1 до 4 р. <br> на всех АЗС</h1>
-                <p class="text-2xl text-white mb-0">Топливная карта для успешного бизнеса, все бренды без коммисий и сборов <span style="color:#FBA834">+ в июле новым клиентам выпуск карт бесплатно</span></p>
+                <p class="text-2xl text-white mb-0">Топливная карта для ИП и юр. лиц, все бренды без коммисий и сборов <span style="color:#FBA834">+ в июле новым клиентам выпуск карт бесплатно</span></p>
               </span>
               <!-- <p class="text-2xl text-white mb-11 text-center">При оформлении договора до конца июня -<br> карты бесплатно</p> -->
               <script data-b24-form="inline/50/ha5cng" data-skip-moving="true">
@@ -160,7 +160,7 @@
         <div class="absolute inset-0">
           <div class="w-full lg:w-2/3 xl:w-2/3 flex flex-col h-full items-center pt-32 pb-20 xl:pb-0 lg:pb-0 xl:pt-0 lg:pt-0">
             <div class="w-5/6 flex flex-col h-full justify-center">
-              <h3 class="gothic main-h3 text-white pt-8" style="font-size: 50px;">Топливный калькулятор</h3>
+              <h3 class="gothic main-h3 text-white pt-8 text-3xl md:text-5xl">Топливный калькулятор</h3>
               <p class="text-2xl leading-9 text-white">Рассчитайте экономию с топливной картой Инфорком</p>
                 <div class="flex flex-wrap lg:flex-nowrap xl:flex-nowrap items-center mt-16">
                 <button type="button" class="btn text-white text-lg md:text-3xl leading-8 py-2 w-full xl:w-auto lg:w-auto px-auto md:px-7 xl:px-15 rounded-full cursor-pointer mb-5 xl:mb-0 lg:mb-0" style="background-color: #FBA834;" onclick="showCalc()">Рассчитать экономию</button>
@@ -260,7 +260,7 @@
             <li class="list_item_star">Грузовой эвакуатор 24/7</li>
           </ul> 
           <img class="w-full xl:w-1/2 lg:w-1/2 self-center" src="assets/zp_man.png" loading="lazy"/> 
-          <a type="button" class="w-full xl:w-1/2 lg:w-1/2 self-center py-8 rounded-3xl text-white text-3xl mt-0 text-center" style="background-color:#387ADF;" href="tel:+74993918910">+7 (499) 391-89-10</a>
+          <a type="button" class="w-full xl:w-1/2 lg:w-1/2 self-center py-8 rounded-3xl text-white text-3xl mt-0 text-center" style="background-color:#387ADF;" href="tel:+74993907587">+7 (499) 390‑75‑87</a>
         </div>
       </section>
 
@@ -296,15 +296,16 @@
     </footer>
 
     <div id="modal" style="display: none;" class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-      <div id="back_modal" style="opacity:0" class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+      <div id="back_modal" style="opacity:0" class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity max-w-full"></div>
     
-      <div class="fixed z-10 inset-0 overflow-y-auto">
+      <div class="fixed z-10 inset-0 overflow-y-auto max-w-full">
+      
         <div class="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
 
-          <div id="back_dialog" style="opacity:0" class="relative rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-4xl sm:w-full">
-            <div class="flex px-4 pt-24 pb-4 sm:pb-4">
-              <img loading="lazy" src="assets/man.png"/>
-              <img loading="lazy" src="assets/card.png"/>
+          <div id="back_dialog" style="opacity:0" class="relative rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 w-full md:max-w-4xl">
+            <div class="flex px-4 pt-24 pb-4 sm:pb-4 justify-center">
+              <img loading="lazy" class="hidden sm:block" src="assets/man.png"/>
+              <img loading="lazy" class="max-w-full" src="assets/card.png"/>
             </div>
             <div class="gothic succ_title">Заявка отправлена!</div>
             <div class="px-4 pt-14 pb-10 sm:px-6 text-center">
@@ -329,5 +330,6 @@
     <script src="bundle.js"></script>  
    
     <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(84361288, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/84361288" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->     
+    <script>(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/60000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://bitrix.inforkom.ru/upload/crm/site_button/loader_5_zn4uyy.js');</script> 
   </body>
 </html>
