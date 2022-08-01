@@ -722,6 +722,10 @@
     opacity: 0;
   }
 
+  .b24-form-control-radio .b24-form-control-label {
+    font-size: 21px!important;
+  }
+
   .b24-form-control input[type='radio'] + span::before{ 
     content: '';
   display: inline-block;
