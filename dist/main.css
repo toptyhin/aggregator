@@ -2113,6 +2113,10 @@ input.geo:hover, input.geo:focus, input.geo:active {
     color: white!important;
   }
 
+  .b24-form-control-container > input + .b24-form-control-label {
+    color: darkslategrey !important;
+  }
+
   .b24-form-control-required {display:none}
 
   .b24-form-field.b24-form-field-radio.b24-form-control-radio {
