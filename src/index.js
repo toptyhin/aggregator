@@ -1,4 +1,4 @@
-import './style.css';
+import './style-for-calc.css';
 import noUiSlider from 'nouislider';
 import InMap from './map';
 import * as echarts from 'echarts';
@@ -25,9 +25,9 @@ $('#geo1').suggestions(
              onSelect: function(suggestion) {
               selectedRegions.reg1 = suggestion.data.region;
               window.scrollTo({
-                top:document.getElementById('slider1').offsetTop - 260,
+                top:document.getElementById('slider1').offsetTop + 560,
                 behavior: 'smooth'
-              })              
+              })
               calc();
         },
         onSelectNothing: function() {
@@ -44,9 +44,9 @@ $('#geo2').suggestions(
            onSelect: function(suggestion) {
             selectedRegions.reg2 = suggestion.data.region;
             window.scrollTo({
-              top:document.getElementById('slider2').offsetTop - 260,
+              top:document.getElementById('slider2').offsetTop + 430,
               behavior: 'smooth'
-            })              
+            })
             calc();
       },
       onSelectNothing: function() {
@@ -101,12 +101,12 @@ const calc = async () => {
   }
   const region = str_reg.join('&');
   const fuel = getActiveFuel();
-  
+
   const url = 'https://data.inforkom.ru/api/v1/Base/Calculator?'+region+'&fuel='+fuel;
 
   const calcResponse = await fetch(url);
   const resp = await calcResponse.json();
-  
+
   const amount_l = slider1.noUiSlider.get() * slider2.noUiSlider.get();
 
   let amounts = {};
@@ -127,7 +127,7 @@ const calc = async () => {
         { value: amounts.manage, name: 'Выбор лучших цен' },
         ]}
       ]
-    };    
+    };
   } else {
     amounts = {
       fuel: amount_l*resp.minPrice - amount_l*resp.maxVal - amount_l*resp.minPrice*0.017,
@@ -143,9 +143,9 @@ const calc = async () => {
         { value: amounts.manage, name: 'Выбор лучших цен' },
         ]}
       ]
-    };        
+    };
   }
-  
+
 
   economyChart.setOption(chartOptions);
 
@@ -162,14 +162,14 @@ const calc = async () => {
 
 window.toggleMenu = () => document.querySelector('.mobile-menu').classList.toggle('active');
 window.btnHandler = (el) => {
-    el.parentNode.querySelectorAll('button.btn-block').forEach(b=>{
+    el.parentNode.querySelectorAll('button.bttn-block').forEach(b=>{
       b.classList.remove('active');
       el == b && el.classList.toggle('active')
     })
     if ( el.dataset && (el.dataset.vat != 'undefined' || el.dataset.ftype != 'undefined') ) {
       calc();
     }
-    
+
   };
 
 window.menuItemHandler = (el,menu = false) => {
@@ -181,7 +181,7 @@ window.menuItemHandler = (el,menu = false) => {
                 top:target.offsetTop - 60,
                 behavior: 'smooth'
             })
-        
+
         }
     }
 
@@ -208,7 +208,7 @@ window.showMap = () => {
         showGaz: false,
         destroy: true,
         mapControlsArray: ["searchControl","routeButtonControl","zoomControl"]
-      });   
+      });
     setTimeout(()=>{
         holder.classList.add('active');
         document.body.style.overflow='hidden';
@@ -318,9 +318,9 @@ economyChart.on('mouseover',(e)=>{
           // position: 'center',
           // formatter: (d) => d.name + ' ' + new Intl.NumberFormat('ru-RU',priceDisplayconfig).format(d.value),
           // fontSize: 14,
-        },        
+        },
       }
-    ]  
+    ]
   });
 });
 economyChart.on('mouseout',(e)=>{
@@ -334,9 +334,9 @@ economyChart.on('mouseout',(e)=>{
           // formatter: '{b}: {c}',
           formatter: (d) => d.name + ' ' + new Intl.NumberFormat('ru-RU',priceDisplayconfig).format(d.value),
           fontSize: 14,
-        },        
+        },
       }
-    ]  
+    ]
   });
 });
 let chartOptions = {
@@ -401,9 +401,9 @@ window.showResults = () => {
   calc();
   economyChart.resize();
   window.scrollTo({
-    top:document.getElementById('calcResult').offsetTop - 60,
+    top:document.getElementById('calcResult').offsetTop + 800,
     behavior: 'smooth'
-  })  
+  })
   // economyChart.dispatchAction({ type: 'highlight', dataIndex: 0 })
 }
 
@@ -420,11 +420,11 @@ window.showCalc = () => {
   setTimeout(()=>{
     calc.style.opacity = '1';
     window.scrollTo({
-      top:calc.offsetTop - 60,
+      top:calc.offsetTop + 800,
       behavior: 'smooth'
   })
   },500)
 }
 
 
-// (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(87874450, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); 
+// (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(87874450, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
