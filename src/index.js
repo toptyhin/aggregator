@@ -1,4 +1,4 @@
-import './style-for-calc.css';
+import './style.css';
 import noUiSlider from 'nouislider';
 import InMap from './map';
 import * as echarts from 'echarts';
@@ -25,7 +25,7 @@ $('#geo1').suggestions(
              onSelect: function(suggestion) {
               selectedRegions.reg1 = suggestion.data.region;
               window.scrollTo({
-                top:document.getElementById('slider1').offsetTop + 560,
+                top:document.getElementById('slider1').offsetTop - 260,
                 behavior: 'smooth'
               })
               calc();
@@ -44,7 +44,7 @@ $('#geo2').suggestions(
            onSelect: function(suggestion) {
             selectedRegions.reg2 = suggestion.data.region;
             window.scrollTo({
-              top:document.getElementById('slider2').offsetTop + 430,
+              top:document.getElementById('slider2').offsetTop - 260,
               behavior: 'smooth'
             })
             calc();
@@ -401,7 +401,7 @@ window.showResults = () => {
   calc();
   economyChart.resize();
   window.scrollTo({
-    top:document.getElementById('calcResult').offsetTop + 800,
+    top:document.getElementById('calcResult').offsetTop - 60,
     behavior: 'smooth'
   })
   // economyChart.dispatchAction({ type: 'highlight', dataIndex: 0 })
@@ -420,7 +420,7 @@ window.showCalc = () => {
   setTimeout(()=>{
     calc.style.opacity = '1';
     window.scrollTo({
-      top:calc.offsetTop + 800,
+      top:calc.offsetTop - 60,
       behavior: 'smooth'
   })
   },500)

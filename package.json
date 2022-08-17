@@ -4,7 +4,7 @@
   "version": "0.01",
   "scripts": {
     "start": "webpack serve --mode=development --open",
-    "build": "export NODE_ENV=production && webpack"
+    "build": "set NODE_ENV=production && webpack"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.17.0",
